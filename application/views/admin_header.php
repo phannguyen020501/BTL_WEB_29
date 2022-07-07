@@ -15,14 +15,14 @@ if(isset($message)){
 
    <div class="flex">
 
-      <a href="admin_page.php" class="logo">Admin<span>Panel</span></a>
+      <a href="admin_page.php" class="logo">Admin</a>
 
       <nav class="navbar">
-         <a href="admin_page.php">home</a>
-         <a href="admin_products.php">products</a>
-         <a href="admin_orders.php">orders</a>
-         <a href="admin_users.php">users</a>
-         <a href="admin_contacts.php">messages</a>
+         <a href="admin_page.php">Trang chủ</a>
+         <a href="admin_products.php">Sản phẩm</a>
+         <a href="admin_orders.php">Đặt sách</a>
+         <a href="admin_users.php">Người dùng</a>
+         <a href="admin_contacts.php">Phản hồi</a>
       </nav>
 
       <div class="icons">
@@ -31,10 +31,10 @@ if(isset($message)){
       </div>
 
       <div class="account-box">
-         <p>username : <span><?php echo $_SESSION['admin_name']; ?></span></p>
-         <p>email : <span><?php echo $_SESSION['admin_email']; ?></span></p>
-         <a href="logout.php" class="delete-btn">logout</a>
-         <div>new <a href="login.php">login</a> | <a href="register.php">register</a></div>
+         <p>Tên : <span><?php echo $_SESSION['admin_name']; ?></span></p>
+         <p>Email : <span><?php echo $_SESSION['admin_email']; ?></span></p>
+         <a href="logout.php" class="delete-btn">Đăng xuất</a>
+         <div>new <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a></div>
       </div>
 
    </div>

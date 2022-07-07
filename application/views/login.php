@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
       }
 
    }else{
-      $message[] = 'incorrect email or password!';
+      $message[] = 'Sai tên đăng nhập hoặc mật khẩu! Vui lòng nhập lại!!';
    }
 
 }
@@ -72,11 +72,11 @@ if(isset($message)){
 <div class="form-container">
 
    <form action="" method="post">
-      <h3>login now</h3>
-      <input type="email" name="email" placeholder="enter your email" required class="box">
-      <input type="password" name="password" placeholder="enter your password" required class="box">
-      <input type="submit" name="submit" value="login now" class="btn">
-      <p>don't have an account? <a href="register.php">register now</a></p>
+      <h3>ĐĂNG NHẬP</h3>
+      <input type="email" name="email" placeholder="Tên đăng nhập" required class="box">
+      <input type="password" name="password" placeholder="Mật khẩu" required class="box">
+      <input type="submit" name="submit" value="Đăng nhập" class="btn">
+      <p>Chưa có tài khoản?<a href="register.php">Đăng ký </a></p>
    </form>
 
 </div>

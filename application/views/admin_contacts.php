@@ -27,7 +27,7 @@ if(isset($_GET['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>messages</title>
+   <title>Phản hồi</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -42,7 +42,7 @@ if(isset($_GET['delete'])){
 
 <section class="messages">
 
-   <h1 class="title"> messages </h1>
+   <h1 class="title"> Phản hồi </h1>
 
    <div class="box-container">
    <?php
@@ -56,17 +56,17 @@ if(isset($_GET['delete'])){
       
    ?>
    <div class="box">
-      <p> user id : <span><?php echo $fetch_message['user_id']; ?></span> </p>
-      <p> name : <span><?php echo $fetch_message['name']; ?></span> </p>
-      <p> number : <span><?php echo $fetch_message['number']; ?></span> </p>
-      <p> email : <span><?php echo $fetch_message['email']; ?></span> </p>
-      <p> message : <span><?php echo $fetch_message['message']; ?></span> </p>
-      <a href="admin_contacts.php?delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('delete this message?');" class="delete-btn">delete message</a>
+      <p> ID người dùng : <span><?php echo $fetch_message['user_id']; ?></span> </p>
+      <p> Tên : <span><?php echo $fetch_message['name']; ?></span> </p>
+      <p> Số điện thoại : <span><?php echo $fetch_message['number']; ?></span> </p>
+      <p> Email : <span><?php echo $fetch_message['email']; ?></span> </p>
+      <p> Phản hồi : <span><?php echo $fetch_message['message']; ?></span> </p>
+      <a href="admin_contacts.php?delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('Xóa phản hồi?');" class="delete-btn">Xóa phản hồi</a>
    </div>
    <?php
       };
    }else{
-      echo '<p class="empty">you have no messages!</p>';
+      echo '<p class="empty">Không có phản hồi</p>';
    }
    ?>
    </div>
@@ -75,14 +75,8 @@ if(isset($_GET['delete'])){
 
 
 
-
-
-
-
-
-
 <!-- custom admin js file link  -->
-<script src="js/admin_script.js"></script>
+<script src="../../public/js/admin_script.js"></script>
 
 </body>
 </html>
