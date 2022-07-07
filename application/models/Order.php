@@ -13,8 +13,21 @@ class Order{
 	private $placed_on;//String
 	private $payment_status;//String
 
+<<<<<<< HEAD
 	public function __construct{
 
+=======
+	public function __construct ($user_id, $name, $number, $email, $method, $address, $total_products, $total_price, $placed_on) {
+		self::setUserId($user_id);
+		self::setName($name);
+		self::setNumber($number);
+		self::setEmail($email);
+		self::setMethod($method);
+		self::setAddress($address);
+		self::setTotalProducts($total_products);
+		self::setTotalPrice($total_price);
+		self::setPlacedOn($placed_on);
+>>>>>>> giang
 	}
 	public function getId(){
 		return $this->id;

@@ -53,7 +53,7 @@ if(isset($_GET['delete'])){
 
 <section class="orders">
 
-   <h1 class="title">Đặt hàng</h1>
+   <h1 class="title">Đặt sách</h1>
 
    <div class="box-container">
       <?php

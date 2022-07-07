@@ -34,9 +34,10 @@ if(isset($message)){
          <p>Tên : <span><?php echo $_SESSION['admin_name']; ?></span></p>
          <p>Email : <span><?php echo $_SESSION['admin_email']; ?></span></p>
          <a href="logout.php" class="delete-btn">Đăng xuất</a>
-         <div>new <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a></div>
+         <div> <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a></div>
       </div>
 
    </div>
+   <link rel="stylesheet" href="../../public/css/admin_header.css">
 
 </header>

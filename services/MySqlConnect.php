@@ -10,7 +10,7 @@ class MySqlConnect implements ISqlConnect {
     private $query;
 
     public function __construct(){
-        $this->db = mysqli_connect('localhost','root','','shop_db');
+        $this->db = mysqli_connect('localhost','root','','shop_db', 3308);
 
         // if($this->db){
         //     echo "connect successfully <br />";

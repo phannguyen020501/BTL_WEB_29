@@ -24,7 +24,7 @@ if(!isset($user_id)){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="../../public/css/about.css">
 
 </head>
 <body>
@@ -62,7 +62,7 @@ if(!isset($user_id)){
    <div class="box-container">
 
       <div class="box">
-         <img src="images/pic-1.png" alt="">
+         <img src="../../public/images/pic-1.png" alt="">
          <p>Quá tuyệt vời</p>
          <div class="stars">
             <i class="fas fa-star"></i>
@@ -75,7 +75,7 @@ if(!isset($user_id)){
       </div>
 
       <div class="box">
-         <img src="images/pic-2.png" alt="">
+         <img src="../../public/images/pic-2.png" alt="">
          <p>Tuyệt vời quá </p>
          <div class="stars">
             <i class="fas fa-star"></i>
@@ -88,7 +88,7 @@ if(!isset($user_id)){
       </div>
 
       <div class="box">
-         <img src="images/pic-3.png" alt="">
+         <img src="../../public/images/pic-3.png" alt="">
          <p>Rất hữu ích</p>
          <div class="stars">
             <i class="fas fa-star"></i>
@@ -101,7 +101,7 @@ if(!isset($user_id)){
       </div>
 
       <div class="box">
-         <img src="images/pic-4.png" alt="">
+         <img src="../../public/images/pic-4.png" alt="">
          <p>Hệ thống ổn định</p>
          <div class="stars">
             <i class="fas fa-star"></i>
@@ -114,7 +114,7 @@ if(!isset($user_id)){
       </div>
 
       <div class="box">
-         <img src="images/pic-5.png" alt="">
+         <img src="../../public/images/pic-5.png" alt="">
          <p>Quá chất lượng</p>
          <div class="stars">
             <i class="fas fa-star"></i>
@@ -127,7 +127,7 @@ if(!isset($user_id)){
       </div>
 
       <div class="box">
-         <img src="images/pic-6.png" alt="">
+         <img src="../../public/images/pic-6.png" alt="">
          <p>Cần đa dạng thêm sách</p>
          <div class="stars">
             <i class="fas fa-star"></i>
