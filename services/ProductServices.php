@@ -1,6 +1,7 @@
 <?php
 require_once '../../application/models/Product.php';
 require_once '../../config/config.php';
+require_once 'MySqlConnect.php';
 
 class ProductServices extends MySqlConnect{
 

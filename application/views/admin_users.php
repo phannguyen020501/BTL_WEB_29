@@ -1,5 +1,5 @@
 <?php
-
+require_once '../../services/UserServices.php';
 session_start();
 
 $admin_id = $_SESSION['admin_id'];
@@ -30,8 +30,8 @@ if(isset($_GET['delete'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="../../scripts/css/admin_users.css">
-   <link rel="stylesheet" href="../../scripts/css/style.css">
+   <link rel="stylesheet" href="../../public/css/admin_users.css">
+   <!-- <link rel="stylesheet" href="../../scripts/css/style.css"> -->
 
 </head>
 <body>
@@ -40,7 +40,7 @@ if(isset($_GET['delete'])){
 
 <section class="users">
 
-   <h1 class="title"> user accounts </h1>
+   <h1 class="title"> Tài khoản người dùng </h1>
 
    <div class="box-container">
       <?php
@@ -48,11 +48,11 @@ if(isset($_GET['delete'])){
          while($fetch_users = mysqli_fetch_assoc($select_users)){
       ?>
       <div class="box">
-         <p> user id : <span><?php echo $fetch_users['id']; ?></span> </p>
-         <p> username : <span><?php echo $fetch_users['name']; ?></span> </p>
-         <p> email : <span><?php echo $fetch_users['email']; ?></span> </p>
-         <p> user type : <span style="color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'var(--orange)'; } ?>"><?php echo $fetch_users['user_type']; ?></span> </p>
-         <a href="admin_users.php?delete=<?php echo $fetch_users['id']; ?>" onclick="return confirm('delete this user?');" class="delete-btn">delete user</a>
+         <p> ID : <span><?php echo $fetch_users['id']; ?></span> </p>
+         <p> Tên : <span><?php echo $fetch_users['name']; ?></span> </p>
+         <p> Email : <span><?php echo $fetch_users['email']; ?></span> </p>
+         <p> Chức vụ : <span style="color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'var(--orange)'; } ?>"><?php echo $fetch_users['user_type']; ?></span> </p>
+         <a href="admin_users.php?delete=<?php echo $fetch_users['id']; ?>" onclick="return confirm('delete this user?');" class="delete-btn">Xóa</a>
       </div>
       <?php
          };

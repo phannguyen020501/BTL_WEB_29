@@ -1,6 +1,6 @@
 <?php
 
-
+require_once 'MySqlConnect.php';
 
 class UserServices extends MySqlConnect{
 

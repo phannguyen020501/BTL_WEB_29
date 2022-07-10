@@ -1,4 +1,5 @@
 <?php
+
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -40,4 +41,5 @@ if(isset($message)){
    </div>
    <link rel="stylesheet" href="../../public/css/admin_header.css">
 
+   <script src="../../public/js/admin_script.js"></script>
 </header>
