@@ -99,7 +99,7 @@ if(isset($_GET['delete'])){
 
 
 <!-- custom admin js file link  -->
-<script src="js/admin_script.js"></script>
+<script src="../../public/js/admin_script.js"></script>
 
 </body>
 </html>
