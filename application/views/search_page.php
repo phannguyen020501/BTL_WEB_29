@@ -50,14 +50,13 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'header.php'; ?>
 
 <div class="heading">
-   <h3>search page</h3>
-   <p> <a href="home.php">home</a> / search </p>
+   <h3>Tìm kiếm</h3>
 </div>
 
 <section class="search-form">
    <form action="" method="post">
-      <input type="text" name="search" placeholder="search products..." class="box">
-      <input type="submit" name="submit" value="search" class="btn">
+      <input type="text" name="search" placeholder="Tìm sách.." class="box">
+      <input type="submit" name="submit" value="Tìm kiếm" class="btn">
    </form>
 </section>
 
@@ -84,10 +83,10 @@ if(isset($_POST['add_to_cart'])){
    <?php
             }
          }else{
-            echo '<p class="empty">no result found!</p>';
+            echo '<p class="empty">Không tìm thấy sách yêu cầu</p>';
          }
       }else{
-         echo '<p class="empty">search something!</p>';
+         echo '<p class="empty">Tìm kiếm </p>';
       }
    ?>
    </div>
@@ -103,7 +102,7 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../../public/js/script.js"></script>
 
 </body>
 </html>

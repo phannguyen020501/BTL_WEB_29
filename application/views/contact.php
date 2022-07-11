@@ -20,10 +20,10 @@ if(isset($_POST['send'])){
    $select_message = mysqli_query($conn, "SELECT * FROM `message` WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'") or die('query failed');
 
    if(mysqli_num_rows($select_message) > 0){
-      $message[] = 'message sent already!';
+      $message[] = 'Phản hồi đã được gửi!';
    }else{
       mysqli_query($conn, "INSERT INTO `message`(user_id, name, email, number, message) VALUES('$user_id', '$name', '$email', '$number', '$msg')") or die('query failed');
-      $message[] = 'message sent successfully!';
+      $message[] = 'Phản hồi thành công!';
    }
 
 }
@@ -50,19 +50,18 @@ if(isset($_POST['send'])){
 <?php include 'header.php'; ?>
 
 <div class="heading">
-   <h3>contact us</h3>
-   <p> <a href="home.php">home</a> / contact </p>
+   <h3>Liên hệ</h3>
 </div>
 
 <section class="contact">
 
    <form action="" method="post">
-      <h3>say something!</h3>
-      <input type="text" name="name" required placeholder="enter your name" class="box">
-      <input type="email" name="email" required placeholder="enter your email" class="box">
-      <input type="number" name="number" required placeholder="enter your number" class="box">
-      <textarea name="message" class="box" placeholder="enter your message" id="" cols="30" rows="10"></textarea>
-      <input type="submit" value="send message" name="send" class="btn">
+      <h3>Phản hồi</h3>
+      <input type="text" name="name" required placeholder="Tên" class="box">
+      <input type="email" name="email" required placeholder="Email" class="box">
+      <input type="number" name="number" required placeholder="Số điện thoại" class="box">
+      <textarea name="message" class="box" placeholder="Nhập phản hồi" id="" cols="30" rows="10"></textarea>
+      <input type="submit" value="Gửi phản hồi" name="send" class="btn">
    </form>
 
 </section>
@@ -72,7 +71,7 @@ if(isset($_POST['send'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../../public/js/script.js"></script>
 
 </body>
 </html>

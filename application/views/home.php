@@ -52,16 +52,16 @@ if(isset($_POST['add_to_cart'])){
 <section class="home">
 
    <div class="content">
-      <h3>Hand Picked Book to your door.</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quod? Reiciendis ut porro iste totam.</p>
-      <a href="about.php" class="white-btn">discover more</a>
+      <h3>Một cuốn sách là một giấc mơ mà bạn cầm trong tay. </h3>
+      <!-- <p>Sách là kho báu vô tận, là đúc kết những tinh hoa, tri thức của cả nhân loại, là sự kết tinh của lớp lớp thế hệ. Sở hữu một cuốn sách hay chính là chìa khóa quyền năng để chúng ta có thể chinh phục được những khó khăn, thử thách phía trước nhằm vươn đến thành công. </p> -->
+      <a href="about.php" class="white-btn">Khám phá </a>
    </div>
 
 </section>
 
 <section class="products">
 
-   <h1 class="title">latest products</h1>
+   <h1 class="title">Sách mới nhất</h1>
 
    <div class="box-container">
 
@@ -78,18 +78,18 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-      <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+      <input type="submit" value="Thêm vào giỏ hàng" name="add_to_cart" class="btn">
      </form>
       <?php
          }
       }else{
-         echo '<p class="empty">no products added yet!</p>';
+         echo '<p class="empty">Không có sách phù hợp!! </p>';
       }
       ?>
    </div>
 
    <div class="load-more" style="margin-top: 2rem; text-align:center">
-      <a href="shop.php" class="option-btn">load more</a>
+      <a href="shop.php" class="option-btn">Tải thêm</a>
    </div>
 
 </section>
@@ -103,9 +103,8 @@ if(isset($_POST['add_to_cart'])){
       </div>
 
       <div class="content">
-         <h3>about us</h3>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos enim minima ipsa dicta officia corporis ratione saepe sed adipisci?</p>
-         <a href="about.php" class="btn">read more</a>
+         <h3>Thông tin về chúng tôi</h3>
+         <a href="about.php" class="btn">Xem thêm</a>
       </div>
 
    </div>
@@ -115,21 +114,21 @@ if(isset($_POST['add_to_cart'])){
 <section class="home-contact">
 
    <div class="content">
-      <h3>have any questions?</h3>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque cumque exercitationem repellendus, amet ullam voluptatibus?</p>
-      <a href="contact.php" class="white-btn">contact us</a>
+      <h3>Thắc mắc cần giải đáp ?</h3>
+      <a href="contact.php" class="white-btn">Liên hệ</a>
    </div>
 
 </section>
 
-
+   
 
 
 
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+
+<script src="../../public/js/script.js"></script>
 
 </body>
 </html>
