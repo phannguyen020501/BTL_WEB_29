@@ -2,6 +2,7 @@
 
 require_once '../../config/config.php';
 require_once '../../services/ProductServices.php';
+require_once '../models/Products.php';
 
 session_start();
 
@@ -25,12 +26,12 @@ if(isset($_POST['add_product'])){
    $select_product_name = $productservice->getFromName($name);
 
    if(mysqli_num_rows($select_product_name) > 0){
-      $message[] = 'Đã thêm thành công';
+      $message[] = 'Đã tồn tại sách';
    }else{
       $product = new Products($name, $price, $image);
       $add_product_query = $productservice->insert($product);
 
-      if($add_product_query){
+      if($add_product_query  == 1){
          if($image_size > 2000000){
             $message[] = 'Kích thước file quá lớn';
          }else{
@@ -112,7 +113,7 @@ if(isset($_POST['update_product'])){
       <h3>Thêm sách</h3>
       <input type="text" name="name" class="box" placeholder="Tên sách" required>
       <input type="number" min="0" name="price" class="box" placeholder="Giá sách" required>
-      <!-- <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required> -->
+      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
       <input type="submit" value="Thên sách" name="add_product" class="btn">
    </form>
 

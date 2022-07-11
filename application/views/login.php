@@ -1,14 +1,17 @@
 <?php
 
-include '../../config/config.php';
+require_once '../../config/config.php';
 session_start();
 
 if(isset($_POST['submit'])){
 
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
+   require_once '../../services/UserServices.php';
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
+   $userservice = new UserServices();
+   // $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
+   $select_users = $userservice->getByEmailAndPassword($email,$pass);
 
    if(mysqli_num_rows($select_users) > 0){
 

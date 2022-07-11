@@ -5,8 +5,9 @@ require_once 'MySqlConnect.php';
 class MessageServices extends MySqlConnect{
 
 
-	public function insert(){
-
+	public function insert($name, $email, $number,$msg){
+		$query = "SELECT * FROM `message` WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'";
+		
 	}
 	public function getAll(){
 		$listOrder = array();
@@ -20,4 +21,5 @@ class MessageServices extends MySqlConnect{
 		parent::addQuerry($query);
         $result = parent::executeQuery();
 	}
+
 }

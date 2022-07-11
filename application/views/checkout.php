@@ -37,10 +37,10 @@ if(isset($_POST['order_btn'])){
    $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
 
    if($cart_total == 0){
-      $message[] = 'your cart is empty';
+      $message[] = 'Giỏ hàng trống';
    }else{
       if(mysqli_num_rows($order_query) > 0){
-         $message[] = 'order already placed!'; 
+         $message[] = 'Giỏ hàng đã được thêm'; 
       }else{
          $order = new Order($user_id, $name, $number, $email, $method, $address, $total_products, $cart_total, $placed_on);
          $orderservice->insert($order);
@@ -64,8 +64,8 @@ if(isset($_POST['order_btn'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../scripts/css/checkout.css">
-   <link rel="stylesheet" href="../../scripts/css/style.css">
+   <link rel="stylesheet" href="../../public/css/checkout.css">
+   <link rel="stylesheet" href="../../public/css/style.css">
 
 </head>
 <body>
@@ -74,7 +74,6 @@ if(isset($_POST['order_btn'])){
 
 <div class="heading">
    <h3>checkout</h3>
-   <p> <a href="home.php">home</a> / checkout </p>
 </div>
 
 <section class="display-order">
@@ -91,65 +90,65 @@ if(isset($_POST['order_btn'])){
    <?php
       }
    }else{
-      echo '<p class="empty">your cart is empty</p>';
+      echo '<p class="empty">Giỏ hàng trống</p>';
    }
    ?>
-   <div class="grand-total"> grand total : <span>$<?php echo $grand_total; ?>/-</span> </div>
+   <div class="grand-total"> Tổng  : <span>$<?php echo $grand_total; ?>/-</span> </div>
 
 </section>
 
 <section class="checkout">
 
    <form action="" method="post">
-      <h3>place your order</h3>
+      <h3>Thông tin đặt hàng</h3>
       <div class="flex">
          <div class="inputBox">
-            <span>your name :</span>
-            <input type="text" name="name" required placeholder="enter your name">
+            <span>Tên :</span>
+            <input type="text" name="name" required placeholder="Tên">
          </div>
          <div class="inputBox">
-            <span>your number :</span>
-            <input type="number" name="number" required placeholder="enter your number">
+            <span>Số điện thoại:</span>
+            <input type="number" name="number" required placeholder="Số điện thoại">
          </div>
          <div class="inputBox">
-            <span>your email :</span>
-            <input type="email" name="email" required placeholder="enter your email">
+            <span>Email :</span>
+            <input type="email" name="email" required placeholder="Email">
          </div>
          <div class="inputBox">
-            <span>payment method :</span>
+            <span>Phương thức thanh toán :</span>
             <select name="method">
-               <option value="cash on delivery">cash on delivery</option>
-               <option value="credit card">credit card</option>
-               <option value="paypal">paypal</option>
-               <option value="paytm">paytm</option>
+               <option value="cash on delivery">Thanh toán sau khi nhận hàng</option>
+               <option value="credit card">Thanh toán thẻ</option>
+               <option value="paypal">Paypal</option>
+               <option value="paytm">Paytm</option>
             </select>
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
-            <input type="number" min="0" name="flat" required placeholder="e.g. flat no.">
+            <span>Địa chỉ 01 :</span>
+            <input type="number" min="0" name="flat" required placeholder="Số nhà.">
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
-            <input type="text" name="street" required placeholder="e.g. street name">
+            <span>Địa chỉ 01 :</span>
+            <input type="text" name="street" required placeholder="Tên đường">
          </div>
          <div class="inputBox">
-            <span>city :</span>
-            <input type="text" name="city" required placeholder="e.g. mumbai">
+            <span>Quận/Huyện: </span>
+            <input type="text" name="city" required placeholder="Quận/Huyện">
          </div>
          <div class="inputBox">
-            <span>state :</span>
-            <input type="text" name="state" required placeholder="e.g. maharashtra">
+            <span>Tỉnh/Thành phố: </span>
+            <input type="text" name="state" required placeholder="Tỉnh/Thành phố">
          </div>
          <div class="inputBox">
-            <span>country :</span>
-            <input type="text" name="country" required placeholder="e.g. india">
+            <span>Quóc gia :</span>
+            <input type="text" name="country" required placeholder="Quốc gia">
          </div>
          <div class="inputBox">
             <span>pin code :</span>
             <input type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
          </div>
       </div>
-      <input type="submit" value="order now" class="btn" name="order_btn">
+      <input type="submit" value="Đặt hàng ngay" class="btn" name="order_btn">
    </form>
 
 </section>
@@ -165,7 +164,7 @@ if(isset($_POST['order_btn'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../../public/js/script.js"></script>
 
 </body>
 </html>

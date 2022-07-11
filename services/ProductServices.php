@@ -7,17 +7,19 @@ class ProductServices extends MySqlConnect{
 
 	// /**
     //  * The method support insert data to database
-    //  * @param Product $product
+    //  * @param Products $product
     //  */
 	public function insert($product){
-		$query  = "insert into `products` (name, price, image) VALUES("
-		.$product->getName().", "
-		.$product->getPrice().", "
-		.$product->getImage().")";
+        $query  = "insert into `products` (name, price, image) VALUES('"
+        .$product->getName()."', '"
+        .$product->getPrice()."', '"
+        .$product->getImage()."')";
+ 
+        parent::addQuerry($query);
+        parent::updateQuery($query);
+		return 1;
+    }
 
-		parent::addQuerry($query);
-		parent::updateQuery($query);
-	}
 
 	// /**
     //  * The method support insert data to database
@@ -64,6 +66,13 @@ class ProductServices extends MySqlConnect{
 
         parent::addQuerry($query);
 		parent::updateQuery($query);
+	}
+	public function getLimit($limit){
+		$listProducts = array();
+		$query = "select * from `products` limit = '$limit'";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+        return $result;
 	}
 
 }

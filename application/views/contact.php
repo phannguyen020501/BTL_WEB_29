@@ -17,6 +17,9 @@ if(isset($_POST['send'])){
    $number = $_POST['number'];
    $msg = mysqli_real_escape_string($conn, $_POST['message']);
 
+   require_once '../../services/MessageServices.php';
+   $select_message = new MessageServices();
+
    $select_message = mysqli_query($conn, "SELECT * FROM `message` WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'") or die('query failed');
 
    if(mysqli_num_rows($select_message) > 0){
