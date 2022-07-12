@@ -44,4 +44,7 @@ class Message{
 	public function setMessage($message){
 		$this->message = $message;
 	}
+	public function setEmail($email){
+		$this->email = $email;
+	}
 }

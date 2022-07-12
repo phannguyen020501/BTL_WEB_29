@@ -31,16 +31,16 @@ if(isset($_POST['add_product'])){
       $product = new Products($name, $price, $image);
       $add_product_query = $productservice->insert($product);
 
-      if($add_product_query  == 1){
+      //if($add_product_query  == 1){
          if($image_size > 2000000){
             $message[] = 'Kích thước file quá lớn';
          }else{
             move_uploaded_file($image_tmp_name, $image_folder);
             $message[] = 'Sách thêm thành công!';
          }
-      }else{
-         $message[] = 'Sách thêm thất bại!';
-      }
+      // }else{
+      //    $message[] = 'Sách thêm thất bại!';
+      // }
    }
 }
 
