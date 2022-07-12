@@ -22,7 +22,7 @@ class CartServices extends MySqlConnect{
 		parent::addQuerry($query);
 		parent::updateQuery($query);
 	}
-
+	
 	public function get($user_id){
 		$query = "select * from `cart` where user_id = '$user_id'";
 
@@ -30,7 +30,12 @@ class CartServices extends MySqlConnect{
         $result = parent::executeQuery();
         return $result;
 	}
-
+	public function getNameID($name,$user_id){
+		$query = "SELECT * FROM `cart` WHERE name = '$name' AND user_id = '$user_id'";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+        return $result;
+	}
 	public function update($id, $quantity){
 		$query = "UPDATE `cart` SET quantity = '$quantity' WHERE id = '$id'";
 
@@ -51,4 +56,10 @@ class CartServices extends MySqlConnect{
         parent::addQuerry($query);
 		parent::updateQuery($query);
     }
+	public function insertProductToCart($user_id, $product_name,$product_price,$product_quantity, $product_image){
+		$query = "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
+		parent::addQuerry($query);
+		parent::updateQuery($query);
+		
+	}
 }

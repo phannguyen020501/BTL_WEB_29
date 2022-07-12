@@ -42,8 +42,13 @@ if(!isset($user_id)){
    <div class="box-container">
 
       <?php
-         $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE user_id = '$user_id'") or die('query failed');
-         if(mysqli_num_rows($order_query) > 0){
+      require_once '../../services/OrderService.php';
+         //$order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE user_id = '$user_id'") or die('query failed');
+      
+      $orderService = new OrderServices();
+      $order_query = $orderService->getFromID($user_id); 
+
+      if(mysqli_num_rows($order_query) > 0){
             while($fetch_orders = mysqli_fetch_assoc($order_query)){
       ?>
       <div class="box">

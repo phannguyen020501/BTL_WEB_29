@@ -1,6 +1,6 @@
 <?php
+require_once '../../config/config.php';
 
-include '../../config/config.php';
 
 if(isset($_POST['submit'])){
 
@@ -10,19 +10,26 @@ if(isset($_POST['submit'])){
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
    $user_type = $_POST['user_type'];
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
-
+   require_once '../../services/RegisterServices.php';
+   
+   $registerService = new RegisterServices();
+   $select_users = $registerService->getNameEmail($email,$pass);
+   //$select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
+   
    if(mysqli_num_rows($select_users) > 0){
-      $message[] = 'user already exist!';
+      $message[] = 'Người dùng đã tồn tại!';
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
+         $message[] = 'Mật khẩu không hợp lệ!';
       }else{
-         mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$cpass', '$user_type')") or die('query failed');
-         $message[] = 'registered successfully!';
+         
+         //mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$cpass', '$user_type')") or die('query failed');
+         $select_users = $registerService->insertUser($name,$email,$pass,$user_type);
+         $message[] = 'Đăng ký thành công!';
          header('location:login.php');
       }
    }
+
 
 }
 
