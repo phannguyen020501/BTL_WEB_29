@@ -1,6 +1,6 @@
 <?php
 
-include '../../config/config.php';
+require_once '../../config/config.php';
 
 session_start();
 
@@ -17,7 +17,7 @@ if(isset($_POST['add_to_cart'])){
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
 
-   require_once '../../services/CartService.php';
+   include '../../services/CartServices.php';
 
    $searchService = new CartServices();
    $check_cart_numbers = $searchService->getNameID($product_name,$user_id);
