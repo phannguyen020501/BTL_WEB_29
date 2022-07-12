@@ -69,7 +69,7 @@ class ProductServices extends MySqlConnect{
 	}
 	public function getLimit($limit){
 		$listProducts = array();
-		$query = "select * from `products` limit = '$limit'";
+		$query = "select * from `products` limit $limit";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;

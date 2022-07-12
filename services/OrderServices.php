@@ -37,4 +37,10 @@ class OrderServices extends MySqlConnect{
 		parent::addQuerry($query);
         $result = parent::executeQuery();
 	}
+	public function getFromID($id) {
+		$query = "select * from `orders` where id = '$id'";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+        return $result;
+	}
 }

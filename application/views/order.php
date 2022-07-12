@@ -1,7 +1,7 @@
 <?php
 
-include '../../config/config.php';
-
+require_once '../../config/config.php';
+require_once '../../services/OrderServices.php';
 session_start();
 
 $user_id = $_SESSION['user_id'];
@@ -42,9 +42,9 @@ if(!isset($user_id)){
    <div class="box-container">
 
       <?php
-      require_once '../../services/OrderService.php';
-         //$order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE user_id = '$user_id'") or die('query failed');
       
+
+         //$order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE user_id = '$user_id'") or die('query failed');
       $orderService = new OrderServices();
       $order_query = $orderService->getFromID($user_id); 
 

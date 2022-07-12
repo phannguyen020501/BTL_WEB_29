@@ -7,6 +7,7 @@ class DefaultController {
 
   /*include footer*/
 	public function __footer(){
-        include ROOT . DS . 'mvc' . DS . 'views' . DS . 'footer.php';
+      require_once '../views/footer.php';
+      // include ROOT . DS . 'mvc' . DS . 'views' . DS . 'footer.php';
     }
 }

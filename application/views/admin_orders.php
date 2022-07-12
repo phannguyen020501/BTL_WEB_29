@@ -14,6 +14,7 @@ if(isset($_POST['update_order'])){
    require_once '../../services/OrderServices.php';
    $order_update_id = $_POST['order_id'];
    $update_payment = $_POST['update_payment'];
+   
    $orderServices = new OrderServices();
    $orderServices->update($update_payment,$order_update_id);
    #mysqli_query($conn, "UPDATE `orders` SET payment_status = '$update_payment' WHERE id = '$order_update_id'") or die('query failed');

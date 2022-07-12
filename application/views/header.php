@@ -16,10 +16,11 @@ if(isset($message)){
    <div class="header-1">
       <div class="flex">
          <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
+            <i href="#"  class="fa-light fa-book-open-cover"></i>
+            <!-- <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
             <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-linkedin"></a> -->
          </div>
          <p> <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a> </p>
       </div>

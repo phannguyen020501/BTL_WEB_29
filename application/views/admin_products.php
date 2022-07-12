@@ -46,7 +46,9 @@ if(isset($_POST['add_product'])){
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
+   $productservice = new ProductServices();
    $delete_image_query = $productservice->getFromID($delete_id);
+
    $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
    unlink('uploaded_img/'.$fetch_delete_image['image']);
    $productservice->deleteFromID($delete_id);

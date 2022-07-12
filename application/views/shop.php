@@ -66,7 +66,7 @@ if(isset($_POST['add_to_cart'])){
    <div class="box-container">
 
       <?php  
-         require_once '../../services/ProductServices';
+         require_once '../../services/ProductServices.php';
          $select = new ProductServices();
          $select_products = $select ->getAll();
          //$select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');

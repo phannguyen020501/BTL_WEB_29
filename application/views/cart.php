@@ -15,7 +15,8 @@ if(!isset($user_id)){
 if(isset($_POST['update_cart'])){
    $cart_id = $_POST['cart_id'];
    $cart_quantity = $_POST['cart_quantity'];
-   $cartservice->update($card_id, $cart_quantity);
+
+   $cartservice->update($cart_id, $cart_quantity);
    $message[] = 'Cập nhập số lượng!';
 }
 
