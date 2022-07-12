@@ -3,7 +3,9 @@
 session_start();
 
 $user_id = $_SESSION['user_id'];
-
+require_once '../../services/CartServices.php';
+require_once '../../services/OrderServices.php';
+require_once '../models/Order.php';
 $cartservice = new CartServices();
 $orderservice = new OrderServices();
 
@@ -44,7 +46,7 @@ if(isset($_POST['order_btn'])){
       }else{
          $order = new Order($user_id, $name, $number, $email, $method, $address, $total_products, $cart_total, $placed_on);
          $orderservice->insert($order);
-         $cartservice->delete($user_id);
+         $cartservice->deleteAll($user_id);
       }
    }
    

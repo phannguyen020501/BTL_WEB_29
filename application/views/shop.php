@@ -17,7 +17,7 @@ if(isset($_POST['add_to_cart'])){
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
 
-   require_once '../../services/CartService.php';
+   require_once '../../services/CartServices.php';
 
    $searchService = new CartServices();
    $check_cart_numbers = $searchService->getNameID($product_name,$user_id);
@@ -28,7 +28,7 @@ if(isset($_POST['add_to_cart'])){
    }else{
 
       //mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
-      insertProductToCart($user_id, $product_name, $product_price, $product_quantity, $product_image);
+      $searchService->insertProductToCart($user_id, $product_name, $product_price, $product_quantity, $product_image);
       $message[] = 'Sản phẩm đã được thêm vào cửa hàng!';
    }
 
