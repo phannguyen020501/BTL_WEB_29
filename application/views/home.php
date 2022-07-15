@@ -20,16 +20,22 @@ if(isset($_POST['add_to_cart'])){
    $product_quantity = $_POST['product_quantity'];
 
    //$check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
+
    $cartservice = new CartServices();
    $check_cart_numbers = $cartservice->getByIdAndName($product_name, $user_id);
+    $fetch_product = mysqli_fetch_assoc($check_cart_numbers);
 
    if(mysqli_num_rows($check_cart_numbers) > 0){
       $message[] = 'Đã thêm vào giỏ hàng';
    }else{
       
       //mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
-      $cartservice->addCart($user_id,$product_name,$product_price,$product_quantity,$product_image);
-      $message[] = 'Sách đã thêm!';
+      if($product_quantity > $fetch_product['availability']){
+         $message[] = 'Vượt quá số lượng sách hiện có';
+      }else{
+         $cartservice->addCart($user_id,$product_name,$product_price,$product_quantity,$product_image);
+         $message[] = 'Sách đã thêm!';
+      }
    }
 
 }
@@ -89,6 +95,7 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
       <input type="submit" value="Thêm vào giỏ hàng" name="add_to_cart" class="btn">
+      <button class ="btn"><a href="book_detail.php?id=<?php echo $fetch_products['id']; ?>">book detail</a></button>
      </form>
       <?php
          }

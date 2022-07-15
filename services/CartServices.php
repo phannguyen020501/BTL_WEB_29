@@ -63,7 +63,6 @@ class CartServices extends MySqlConnect{
 
     public function deleteAll($user_id) {
         $query = "delete FROM `cart` WHERE user_id = $user_id";
-
         parent::addQuerry($query);
 		parent::updateQuery($query);
     }
