@@ -167,4 +167,4 @@ class Products {
     {
         $this->id = $id;
     }
-
+}

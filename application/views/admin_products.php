@@ -16,15 +16,12 @@ if(isset($_POST['add_product'])){
 
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $price = $_POST['price'];
-<<<<<<< HEAD
    $author = $_POST['author'];
    $category = $_POST['category'];
    $publisher = $_POST['publisher'];
    $availability = $_POST['availability'];
    $summary = $_POST['summary'];
    $year = $_POST['year'];
-=======
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
    $image = $_FILES['image']['name'];
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
@@ -37,32 +34,19 @@ if(isset($_POST['add_product'])){
    if(mysqli_num_rows($select_product_name) > 0){
       $message[] = 'Đã tồn tại sách';
    }else{
-<<<<<<< HEAD
       $product = new Products($name, $author, $category, $publisher, $availability, $price, $summary, $image, $year);
       $add_product_query = $productservice->insert($product);
 
       //if($add_product_query  == 1){
-=======
-      $product = new Products($name, $price, $image);
-      $add_product_query = $productservice->insert($product);
-
-      if($add_product_query  == 1){
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
          if($image_size > 2000000){
             $message[] = 'Kích thước file quá lớn';
          }else{
             move_uploaded_file($image_tmp_name, $image_folder);
             $message[] = 'Sách thêm thành công!';
          }
-<<<<<<< HEAD
       // }else{
       //    $message[] = 'Sách thêm thất bại!';
       // }
-=======
-      }else{
-         $message[] = 'Sách thêm thất bại!';
-      }
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
    }
 }
 
@@ -82,7 +66,6 @@ if(isset($_POST['update_product'])){
    $update_p_id = $_POST['update_p_id'];
    $update_name = $_POST['update_name'];
    $update_price = $_POST['update_price'];
-<<<<<<< HEAD
    $update_author = $_POST['update_author'];
    $update_category = $_POST['update_category'];
    $update_publisher = $_POST['update_publisher'];
@@ -90,10 +73,6 @@ if(isset($_POST['update_product'])){
    $update_summary = $_POST['update_summary'];
    $update_year = $_POST['update_year'];
    $productservice->update($update_name, $update_author,$update_category,$update_publisher,$update_availability, $update_price, $update_summary,$update_year, $update_p_id);
-=======
-
-   $productservice->update($update_name, $update_price, $update_p_id);
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
 
    $update_image = $_FILES['update_image']['name'];
    $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
@@ -135,26 +114,17 @@ if(isset($_POST['update_product'])){
 </head>
 <body>
    
-<<<<<<< HEAD
 <?php require_once 'admin_header.php'; ?>
-=======
-<?php include 'admin_header.php'; ?>
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
 
 <!-- product CRUD section starts  -->
 
 <section class="add-products">
 
-<<<<<<< HEAD
    <h1 class="title">Cửa hàng sách</h1>
-=======
-   <h1 class="title">Sản phẩm</h1>
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
 
    <form action="" method="post" enctype="multipart/form-data">
       <h3>Thêm sách</h3>
       <input type="text" name="name" class="box" placeholder="Tên sách" required>
-<<<<<<< HEAD
       <input type="text" name="author" class="box" placeholder="Tên tác giả" required>
       <input type="text" name="category" class="box" placeholder="Thể Loại" required>
       <input type="text" name="publisher" class="box" placeholder="Nhà xuất bản" required>
@@ -165,11 +135,6 @@ if(isset($_POST['update_product'])){
       <input type="number" min="0" name="year" class="box" placeholder="Năm xuất bản" required>
       <input type="submit" value="Thên sách" name="add_product" class="btn">
       
-=======
-      <input type="number" min="0" name="price" class="box" placeholder="Giá sách" required>
-      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
-      <input type="submit" value="Thêm sách" name="add_product" class="btn">
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
    </form>
 
 </section>
@@ -190,7 +155,6 @@ if(isset($_POST['update_product'])){
       ?>
       <div class="box">
          <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
-<<<<<<< HEAD
          <div class="name" ><?php echo $fetch_products['name']; ?></div>
          <div class="author"><?php echo $fetch_products['author']; ?></div>
          <div class="category"><?php echo $fetch_products['category']; ?></div>
@@ -200,21 +164,12 @@ if(isset($_POST['update_product'])){
          <div class="summary"><?php echo $fetch_products['summary']; ?></div>
          <div class="year"><?php echo $fetch_products['year']; ?></div>
          <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">Cập nhập</a>
-=======
-         <div class="name"><?php echo $fetch_products['name']; ?></div>
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
-         <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">Cập nhật</a>
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
          <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Xóa sách?');">Xóa</a>
       </div>
       <?php
          }
       }else{
-<<<<<<< HEAD
          echo '<p class="empty">Không có sách để thêm!</p>';
-=======
-         echo '<p class="empty">Chưa có sản phẩm !</p>';
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
       }
       ?>
    </div>
@@ -235,7 +190,6 @@ if(isset($_POST['update_product'])){
       <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
       <img src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
       <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="enter product name">
-<<<<<<< HEAD
       <input type="text" name="update_author" value="<?php echo $fetch_update['author']; ?>" class="box" required placeholder="enter product author">
       <input type="text" name="update_category" value="<?php echo $fetch_update['category']; ?>" class="box" required placeholder="enter product category">
       <input type="text" name="update_publisher" value="<?php echo $fetch_update['publisher']; ?>" class="box" required placeholder="enter product publisher">
@@ -245,11 +199,6 @@ if(isset($_POST['update_product'])){
       <input type="number" name="update_year" value="<?php echo $fetch_update['year']; ?>" min="0" class="box" required placeholder="enter product year">
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
       <input type="submit" value="cập nhập" name="update_product" class="btn">
-=======
-      <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="box" required placeholder="enter product price">
-      <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-      <input type="submit" value="cập nhật" name="update_product" class="btn">
->>>>>>> 46eb0339e0e59903cd24eabab9c1cc57689ecc93
       <input type="reset" value="hủy" id="close-update" class="option-btn">
    </form>
    <?php
