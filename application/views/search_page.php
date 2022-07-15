@@ -24,12 +24,12 @@ if(isset($_POST['add_to_cart'])){
    //$check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
    if(mysqli_num_rows($check_cart_numbers) > 0){
-      $message[] = 'already added to cart!';
+      $message[] = 'Sản phẩm đã có trong giỏ hàng';
    }else{
-      
+
       //mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
-      insertProductToCart($user_id, $product_name, $product_price, $product_quantity, $product_image);
-      $message[] = 'product added to cart!';
+      $searchService->insertProductToCart($user_id, $product_name, $product_price, $product_quantity, $product_image);
+      $message[] = 'Đã thêm vào giỏ hàng';
    }
 
 };
@@ -42,7 +42,7 @@ if(isset($_POST['add_to_cart'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>search page</title>
+   <title>Trang tìm kiếm</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../config/config.php';
+include '../../config/config.php';
 
 session_start();
 
@@ -17,12 +17,8 @@ if(isset($_POST['add_to_cart'])){
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
 
-#<<<<<<< HEAD
- #  require_once '../../services/CartServices.php';
-#=======
-#   include '../../services/CartServices.php';
-#>>>>>>> b80edaf5589fe894c01232da4dbbaacc39714afa
    require_once '../../services/CartServices.php';
+
    $searchService = new CartServices();
    $check_cart_numbers = $searchService->getNameID($product_name,$user_id);
    //$check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');

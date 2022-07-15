@@ -135,12 +135,17 @@ if(isset($_POST['order_btn'])){
                <option value="paytm">Paytm</option>
             </select>
          </div>
-         <div class="inputBox">
+         <!-- <div class="inputBox">
             <span>Địa chỉ 01 :</span>
             <input type="number" min="0" name="flat" required placeholder="Số nhà.">
          </div>
          <div class="inputBox">
             <span>Địa chỉ 01 :</span>
+            <span>Số nhà :</span>
+            <input type="number" min="0" name="flat" required placeholder="Số nhà.">
+         </div> -->
+         <div class="inputBox">
+            <span>Tên đường:</span>
             <input type="text" name="street" required placeholder="Tên đường">
          </div>
          <div class="inputBox">
