@@ -35,7 +35,7 @@
 
    </div>
 
-   <p class="credit"> &copy; copyright  @ <?php echo date('Y/M'); ?> by <span>Web29</span> </p>
+   <p class="credit"> &copy; copyright  @ <?php echo date('Y'); ?> by <span>Web29</span> </p>
    <link rel="stylesheet" href="../../public/css/footer.css">
 
 
