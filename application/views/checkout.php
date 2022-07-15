@@ -33,7 +33,7 @@ if(isset($_POST['order_btn'])){
          $cart_total += $sub_total;
       }
    }
-
+   require_once '../../services/ProductServices.php';
    $total_products = implode(', ',$cart_products);
 
    $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
@@ -46,6 +46,16 @@ if(isset($_POST['order_btn'])){
       }else{
          $order = new Order($user_id, $name, $number, $email, $method, $address, $total_products, $cart_total, $placed_on);
          $orderservice->insert($order);
+         $cart_query1 = $cartservice->get($user_id);
+         while($cart_item = mysqli_fetch_assoc($cart_query1)){
+            $productServices = new ProductServices();
+            $producti = $productServices->getFromName($cart_item['name']);
+            $product1 = mysqli_fetch_assoc($producti);
+            $quantityProduct = $product1['availability'];
+            $updateAvailability = $quantityProduct - $cart_item['quantity'];
+            echo $updateAvailability;
+            $productServices->updateAvailability($updateAvailability,$product1['id']);
+         }
          $cartservice->deleteAll($user_id);
       }
    }
