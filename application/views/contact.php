@@ -31,7 +31,6 @@ if(isset($_POST['send'])){
       $message[] = "vui lòng nhập đủ thông tin ";
    }else{
       $select_message->insert($user_id, $name, $email, $number,$msg,$star);
-      // mysqli_query($conn, "INSERT INTO `message`(user_id, name, email, number, message,star) VALUES('$user_id', '$name', '$email', '$number', '$msg','$star')") or die('query failed');
       $message[] = 'Phản hồi thành công!';
    }
    
@@ -68,8 +67,6 @@ if(isset($_POST['send'])){
 
    <form action="" method="post">
       <h3>Phản hồi</h3>
-      <!-- <input type="text" name="name" required placeholder="Tên" class="box">
-      <input type="email" name="email" required placeholder="Email" class="box"> -->
       <input type="number" name="star" required placeholder="Số sao" class="box" min = 1 max = 5>
       <textarea name="message" class="box" placeholder="Nhập phản hồi" id="" cols="30" rows="10"></textarea>
       <input type="submit" value="Gửi phản hồi" name="send" class="btn">

@@ -15,7 +15,6 @@ if(isset($_GET['delete'])){
    require_once '../../services/MessageServices.php';
    $select_message = new MessageServices();
    $select_message->delete($delete_id);
-   #mysqli_query($conn, "DELETE FROM `message` WHERE id = '$delete_id'") or die('query failed');
    header('location:admin_contacts.php');
 }
 
@@ -29,10 +28,8 @@ if(isset($_GET['delete'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Phản hồi</title>
 
-   <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- custom admin css file link  -->
    <link rel="stylesheet" href="../../public/css/admin_style.css">
 
 </head>
@@ -50,7 +47,6 @@ if(isset($_GET['delete'])){
       require_once '../../services/MessageServices.php';
       $messageServices = new MessageServices();
       $select_message = $messageServices->getAll();
-      //$select_message = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
       if(mysqli_num_rows($select_message) > 0){
          while($fetch_message = mysqli_fetch_assoc($select_message)){
       

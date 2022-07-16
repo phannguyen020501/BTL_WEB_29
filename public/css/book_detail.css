@@ -187,15 +187,25 @@ body{
 .purchase-info{
     margin: 1.5rem 0;
 }
-.purchase-info input,
-.purchase-info .btn{
+.purchase-info input{
+    display: inline-block;
     border: 1.5px solid #ddd;
-    border-radius: 25px;
+    border-radius: .5rem;
     text-align: center;
     padding: 0.45rem 0.8rem;
     outline: 0;
     margin-right: 0.2rem;
     margin-bottom: 1rem;
+}
+.purchase-info .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:1rem 3rem;
+    cursor: pointer;
+    color:var(--white);
+    font-size: 1.8rem;
+    border-radius: .5rem;
+    text-transform: capitalize;
 }
 .purchase-info input{
     width: 60px;

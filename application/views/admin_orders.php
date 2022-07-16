@@ -17,7 +17,6 @@ if(isset($_POST['update_order'])){
    
    $orderServices = new OrderServices();
    $orderServices->update($update_payment,$order_update_id);
-   #mysqli_query($conn, "UPDATE `orders` SET payment_status = '$update_payment' WHERE id = '$order_update_id'") or die('query failed');
    $message[] = 'Cập nhập trạng thái thành công!';
 
 }
@@ -27,7 +26,6 @@ if(isset($_GET['delete'])){
    require_once '../../services/OrderServices.php';
    $orderServices = new OrderServices();
    $orderServices->delete($delete_id);
-   #mysqli_query($conn, "DELETE FROM `orders` WHERE id = '$delete_id'") or die('query failed');
    header('location:admin_orders.php');
 }
 
@@ -61,7 +59,6 @@ if(isset($_GET['delete'])){
       require_once '../../services/OrderServices.php';
       $services = new OrderServices();
       $select_orders = $services->getAll();
-      #$select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
       if(mysqli_num_rows($select_orders) > 0){
          while($fetch_orders = mysqli_fetch_assoc($select_orders)){
       ?>

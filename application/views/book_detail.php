@@ -28,7 +28,6 @@ if(isset($_POST['add_to_cart'])){
    }else{
 
 
-   //$check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
    $cartservice = new CartServices();
    $check_cart_numbers = $cartservice->getByIdAndName($product_name, $user_id);
 
@@ -36,7 +35,6 @@ if(isset($_POST['add_to_cart'])){
       $message[] = 'Đã thêm vào giỏ hàng';
    }else{
       
-      //mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
       $cartservice->addCart($user_id,$product_name,$product_price,$product_quantity,$product_image);
       $message[] = 'Sách đã thêm!';
    }
@@ -135,8 +133,8 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
       <!--<input type="submit" value="Thêm vào giỏ hàng" name="add_to_cart" class="btn">-->
 
-        <button type="submit" class = "btn" name="add_to_cart" value="add_to_cart">
-          Add to Cart <i class = "fas fa-shopping-cart"></i></button>
+        <button type="submit" class = "btn" name="add_to_cart" value="Thêm vào giỏ hàng">
+          Thêm vào giỏ hàng <i class = "fas fa-shopping-cart"></i></button>
         </input>
         </form>
       </div>

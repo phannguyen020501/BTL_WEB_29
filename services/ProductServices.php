@@ -86,4 +86,10 @@ class ProductServices extends MySqlConnect{
         return $result;
 	}
 
+	public function updateAvailability($availability,$id){
+		$query = "update products set availability = $availability where id = $id";
+		parent::addQuerry($query);
+		parent::updateQuery($query);
+	}
+
 }
