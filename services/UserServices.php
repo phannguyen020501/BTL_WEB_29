@@ -1,6 +1,9 @@
 <?php
 
 require_once 'MySqlConnect.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\application\models\User.php';
+
+
 class UserServices extends MySqlConnect{
 
 
@@ -39,5 +42,22 @@ class UserServices extends MySqlConnect{
 		parent::updateQuery($query);
 	}
 
-	
+	public function getById($id){
+
+		$query = "select * from `users` where  id = '$id'";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		if($row = mysqli_fetch_array($result)){
+			$id = $row['id'];
+			$name = $row['name'];
+			$email = $row['email'];
+			$pass = $row['password'];
+			$type = $row['user_type'];
+			$number = $row['number'];
+			$user = new User($name,$email,$pass,$type,$number);
+			return $user;
+		}
+		return null;
+
+	}
 }

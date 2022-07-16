@@ -1,6 +1,9 @@
 <?php
 
 require_once '../../config/config.php';
+require_once '../../services/MessageServices.php';
+
+
 
 session_start();
 
@@ -9,6 +12,11 @@ $user_id = $_SESSION['user_id'];
 if(!isset($user_id)){
    header('location:login.php');
 }
+
+$messageservice = new MessageServices();
+$listMessage = $messageservice->getAll();
+
+
 
 ?>
 
@@ -60,21 +68,90 @@ if(!isset($user_id)){
    <h1 class="title">Phản hổi từ khách hàng</h1>
 
    <div class="box-container">
+      
+      <?php
+         require_once '../../config/config.php';
+         require_once '../../services/MessageServices.php';
+         $messageservice = new MessageServices();
+         $listMessage = $messageservice->getSomePhanHoi();
+         $len = count($listMessage);
+         
+         if($len > 6){
+            $len = 6;
+         }
+         for($i =0 ; $i <$len; $i++){
+            $message = $listMessage[$i];
+      ?>
+            <div class="box">
+               <h3>
+               <?php
+                  echo $message->getName();
+                ?>
+               </h3>
+               <p><?php
+                  echo $message->getMessage();
+                ?></p>
+               <?php
+                  $star = $message ->getStar();
+                  if($star == 1){
+                     ?>
+                     <div class="stars">
+                        <i class="fas fa-star"></i>
+                  </div>
+                  <?php        
+                  }
+                  else if($star == 2){
+                     ?>
+                     <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                  </div>
+                  <?php        
+                  }
 
-      <div class="box">
-         <img src="../../public/images/pic-1.png" alt="">
-         <p>Quá tuyệt vời</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Nguyễn Đình Tuấn</h3>
-      </div>
+                  else if($star == 3){
+                     ?>
+                     <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
 
-      <div class="box">
+                  </div>
+                  <?php        
+                  }
+
+                  else if($star == 4){
+                     ?>
+                     <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+
+                  </div>
+                  <?php        
+                  }
+
+                  else if($star == 5){
+                     ?>
+                     <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+
+                  </div>
+                  <?php        
+                  }
+               ?>
+              
+              
+            </div>
+            <?php
+         }
+         ?>
+      <!-- <div class="box">
          <img src="../../public/images/pic-2.png" alt="">
          <p>Tuyệt vời quá </p>
          <div class="stars">
@@ -137,87 +214,12 @@ if(!isset($user_id)){
             <i class="fas fa-star-half-alt"></i>
          </div>
          <h3>Khánh dz</h3>
-      </div>
+      </div> -->
 
    </div>
 
 </section>
 
-<!-- <section class="authors">
-
-   <h1 class="title">greate authors</h1>
-
-   <div class="box-container">
-
-      <div class="box">
-         <img src="images/author-1.jpg" alt="">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <h3>john deo</h3>
-      </div>
-
-      <div class="box">
-         <img src="images/author-2.jpg" alt="">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <h3>john deo</h3>
-      </div>
-
-      <div class="box">
-         <img src="images/author-3.jpg" alt="">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <h3>john deo</h3>
-      </div>
-
-      <div class="box">
-         <img src="images/author-4.jpg" alt="">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <h3>john deo</h3>
-      </div>
-
-      <div class="box">
-         <img src="images/author-5.jpg" alt="">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <h3>john deo</h3>
-      </div>
-
-      <div class="box">
-         <img src="images/author-6.jpg" alt="">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <h3>john deo</h3>
-      </div>
-
-   </div>
-
-</section> -->
 
 <?php include 'footer.php'; ?>
 
