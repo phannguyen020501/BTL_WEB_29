@@ -116,11 +116,13 @@ if(isset($_POST['add_to_cart'])){
    <div class="flex">
 
       <div class="image">
-         <img src="../../public/images/about-img.jpg" alt="">
+         <img src="../../public/images/aboutbook.jpg" alt="">
       </div>
 
       <div class="content">
          <h3>Thông tin về chúng tôi</h3>
+         <p>Cửa hàng luôn phục vụ với sự tận tâm và luôn cố gắng mang lại sự hài lòng nhất cho khách hàng</p>
+         <p>Luôn đặt chất lượng lên đầu!!</p>
          <a href="about.php" class="btn">Xem thêm</a>
       </div>
 
