@@ -10,8 +10,8 @@ class RegisterServices extends MySqlConnect{
      * The method support insert data to database
      * @param User $user
      */
-	public function insertUser($name,$email,$pass,$tpye){
-		$query = "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$pass', '$tpye')";
+	public function insertUser($name,$email,$pass,$tpye,$number){
+		$query = "INSERT INTO `users`(name, email, password, user_type,number) VALUES('$name', '$email', '$pass', '$tpye','$number')";
 		//$query  = "insert into `users`(name, email, password, user_type) VALUES($name,$email,$pass,$tpye)";
 		echo $query;
 		parent::addQuerry($query);

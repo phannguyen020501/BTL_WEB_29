@@ -1,6 +1,5 @@
 <?php
 require_once '../../application/models/Products.php';
-//require_once '../../application/models/Product.php';
 require_once '../../config/config.php';
 require_once 'MySqlConnect.php';
 
@@ -11,7 +10,7 @@ class ProductServices extends MySqlConnect{
     //  * @param Products $product
     //  */
 	public function insert($product){
-        $query  = "insert into `products` (name,author,category,publisher,availability, price,summary, image,year) VALUES('"
+        $query  = "insert into products (name,author,category,publisher,availability, price,summary, image,year) VALUES('"
         .$product->getName()."', '"
         .$product->getAuthor()."', '"
         .$product->getCategory()."', '"
@@ -33,17 +32,19 @@ class ProductServices extends MySqlConnect{
     //  * @param Product $product
     //  */
 	public function update($name, $author, $category, $publisher, $availability, $price, $summary, $year, $id) {
-		$query  = "UPDATE `products` SET name = $name, author = $author, category=$category, publisher = $publisher, availability=$availability, price = $price, summary = $summary, year = $year 
+		$query  = "UPDATE products SET name = '$name', author = '$author',
+				 category='$category', publisher = '$publisher' , availability='$availability',
+				  price = '$price', summary ='$summary', year = '$year' 
+		 WHERE id = '$id'";
 
-
-		 WHERE id = $id";
+		
 
 		parent::addQuerry($query);
 		parent::updateQuery($query);
 	}
 
 	public function updateImage($image, $id) {
-		$query  = "UPDATE `products` SET image = $image WHERE id = $id";
+		$query  = "UPDATE products SET image = $image WHERE id = $id";
 
 		parent::addQuerry($query);
 		parent::updateQuery($query);
@@ -51,35 +52,35 @@ class ProductServices extends MySqlConnect{
 
 	public function getAll(){
 		$listProducts = array();
-		$query = "select * from `products`";
+		$query = "select * from products";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;
 	}
 
 	public function getFromName($name) {
-		$query = "select * from `products` where name = '$name'";
+		$query = "select * from products where name = '$name'";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;
 	}
 
 	public function getFromID($id) {
-		$query = "select * from `products` where id = '$id'";
+		$query = "select * from products where id = '$id'";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;
 	}
 
 	public function deleteFromID($id) {
-		$query = "delete from `products` where id = '$id'";
+		$query = "delete from products where id = '$id'";
 
         parent::addQuerry($query);
 		parent::updateQuery($query);
 	}
 	public function getLimit($limit){
 		$listProducts = array();
-		$query = "select * from `products` limit $limit";
+		$query = "select * from products limit $limit";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;

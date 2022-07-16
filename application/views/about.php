@@ -48,12 +48,12 @@ $listMessage = $messageservice->getAll();
 
    <div class="flex">
 
-      <div class="image">
-         <img src="images/about-img.jpg" alt="">
+      <div class="image" >
+         <img src="../../public/images/aboutbook.jpg" alt="" style = 'height = 100px; '>
       </div>
 
-      <div class="content">
-         <h3>Tại saoo lại chọn chúng tôi?</h3>
+      <div class="content" style = 'height = 100px; '>
+         <h3>Tại sao lại chọn chúng tôi?</h3>
          <p>Cửa hàng luôn phục vụ với sự tận tâm và luôn cố gắng mang lại sự hài lòng nhất cho khách hàng</p>
          <p>Luôn đặt chất lượng lên đầu!!</p>
          <a href="contact.php" class="btn">Liên hệ</a>

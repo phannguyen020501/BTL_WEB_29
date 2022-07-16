@@ -7,9 +7,17 @@ require_once 'C:\xampp\htdocs\BTL_WEB_29\application\models\User.php';
 class UserServices extends MySqlConnect{
 
 
-	public function insert(){
-
-	}
+	public function insert($user){
+        $query  = "insert into `products` (name,email,pass,tpye, number) VALUES('"
+        .$user->getName()."', '"
+        .$user->getEmail()."', '"
+        .$user->getPassword()."', '"
+        .$user->getUser_type()."', '"       
+        .$user->getNumber()."')";
+        parent::addQuerry($query);
+        parent::updateQuery($query);
+		return 1;
+    }
 
 	public function getByEmailAndPassword($email, $pass){
 		$query = "select * from `users` where email = '$email' and password = '$pass'";

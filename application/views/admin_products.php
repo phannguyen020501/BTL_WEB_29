@@ -27,7 +27,6 @@ if(isset($_POST['add_product'])){
    $image_tmp_name = $_FILES['image']['tmp_name'];
    $image_folder = 'uploaded_img/'.$image;
 
-   $productservice = new ProductServices();
 
    $select_product_name = $productservice->getFromName($name);
 
@@ -72,6 +71,10 @@ if(isset($_POST['update_product'])){
    $update_availability = $_POST['update_availability'];
    $update_summary = $_POST['update_summary'];
    $update_year = $_POST['update_year'];
+
+
+   $productservice = new ProductServices();
+
    $productservice->update($update_name, $update_author,$update_category,$update_publisher,$update_availability, $update_price, $update_summary,$update_year, $update_p_id);
 
    $update_image = $_FILES['update_image']['name'];
@@ -161,8 +164,8 @@ if(isset($_POST['update_product'])){
          <div class="publisher"><?php echo $fetch_products['publisher']; ?></div>
          <div class="availability"><?php echo $fetch_products['availability']; ?></div>
          <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
-         <div class="summary"><?php echo $fetch_products['summary']; ?></div>
-         <div class="year"><?php echo $fetch_products['year']; ?></div>
+         <!-- <div class="summary"><?php echo $fetch_products['summary']; ?></div> -->
+         <!-- <div class="year"><?php echo $fetch_products['year']; ?></div> -->
          <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">Cập nhập</a>
          <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Xóa sách?');">Xóa</a>
       </div>
@@ -176,7 +179,10 @@ if(isset($_POST['update_product'])){
 
 </section>
 
-<section class="edit-product-form">
+<section class="edit-product-form" style="
+   overflow: scroll;
+    width: 100%;
+    height: 50%;">
 
    <?php
       if(isset($_GET['update'])){
@@ -185,7 +191,7 @@ if(isset($_POST['update_product'])){
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>
-   <form action="" method="post" enctype="multipart/form-data">
+   <form  method="post" enctype="multipart/form-data">
       <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
       <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
       <img src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
@@ -199,7 +205,7 @@ if(isset($_POST['update_product'])){
       <input type="number" name="update_year" value="<?php echo $fetch_update['year']; ?>" min="0" class="box" required placeholder="enter product year">
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
       <input type="submit" value="cập nhập" name="update_product" class="btn">
-      <input type="reset" value="hủy" id="close-update" class="option-btn">
+      <input type ="submit" value="hủy" formaction="admin_products.php" id="close-update" class="option-btn">
    </form>
    <?php
          }
@@ -218,7 +224,7 @@ if(isset($_POST['update_product'])){
 
 
 <!-- custom admin js file link  -->
-<script src="../../scripts/js/admin_script.js"></script>
+<script src="../../public/js/admin_script.js"></script>
 
 </body>
 </html>

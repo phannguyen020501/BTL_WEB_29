@@ -97,7 +97,7 @@ if(isset($_GET['delete_all'])){
       <p>Tổng đơn hàng : <span>$<?php echo $grand_total; ?>/-</span></p>
       <div class="flex">
          <a href="shop.php" class="option-btn">Tiếp tục mua sắm</a>
-         <a href="checkout.php" class="btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">Trong quá trình xác nhận</a>
+         <a href="checkout.php" class="btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">Điền thông tin đơn hàng</a>
       </div>
    </div>
 
