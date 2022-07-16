@@ -15,7 +15,6 @@ if(isset($_POST['submit'])){
    $registerService = new RegisterServices();
    $select_users = $registerService->getNameEmail($email,$pass);
   
-   //$select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
    
    if(mysqli_num_rows($select_users) > 0){
       $message[] = 'Người dùng đã tồn tại!';
@@ -24,7 +23,6 @@ if(isset($_POST['submit'])){
          $message[] = 'Mật khẩu không hợp lệ!';
       }else{
          
-         //mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$cpass', '$user_type')") or die('query failed');
          $select_users = $registerService->insertUser($name,$email,$pass,$user_type,$number);
          $message[] = 'Đăng ký thành công!';
          header('location:login.php');

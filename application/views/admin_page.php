@@ -45,8 +45,6 @@ if(!isset($admin_id)){
             $services = new OrderServices();
             $select_pending = $services->getTotalPrice("pending");
 
-
-            #$select_pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
             if(mysqli_num_rows($select_pending) > 0){
                while($fetch_pendings = mysqli_fetch_assoc($select_pending)){
                   $total_price = $fetch_pendings['total_price'];
@@ -64,7 +62,6 @@ if(!isset($admin_id)){
             $total_completed = 0;
             $services = new OrderServices();
             $select_completed = $services->getTotalPrice("completed");
-            #$select_completed = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'completed'") or die('query failed');
             if(mysqli_num_rows($select_completed) > 0){
                while($fetch_completed = mysqli_fetch_assoc($select_completed)){
                   $total_price = $fetch_completed['total_price'];
@@ -81,7 +78,6 @@ if(!isset($admin_id)){
             require_once '../../services/OrderServices.php';
             $services = new OrderServices();
             $select_orders = $services->getAll();
-            #$select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
             $number_of_orders = mysqli_num_rows($select_orders);
          ?>
          <h3><?php echo $number_of_orders; ?></h3>
@@ -93,7 +89,6 @@ if(!isset($admin_id)){
             require_once '../../services/ProductServices.php';
             $products = new ProductServices();
             $select_products = $products->getAll(); 
-            #$select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
             $number_of_products = mysqli_num_rows($select_products);
          ?>
          <h3><?php echo $number_of_products; ?></h3>
@@ -117,7 +112,6 @@ if(!isset($admin_id)){
             require_once '../../services/ProductServices.php';
             $admins = new UserServices();
             $select_admins = $admins->getAllByType("admin");
-            #$select_admins = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'admin'") or die('query failed');
             $number_of_admins = mysqli_num_rows($select_admins);
          ?>
          <h3><?php echo $number_of_admins; ?></h3>
@@ -129,7 +123,6 @@ if(!isset($admin_id)){
             require_once '../../services/ProductServices.php';
             $accounts = new UserServices();
             $select_account = $accounts->getAll();
-            #$select_account = mysqli_query($conn, "SELECT * FROM `users`") or die('query failed');
             $number_of_account = mysqli_num_rows($select_account);
          ?>
          <h3><?php echo $number_of_account; ?></h3>
@@ -141,7 +134,6 @@ if(!isset($admin_id)){
             require_once '../../services/MessageServices.php';
             $messages = new MessageServices();
             $select_messages = $messages->getAll();
-            #$select_messages = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
             $number_of_messages = mysqli_num_rows($select_messages);
          ?>
          <h3><?php echo $number_of_messages; ?></h3>
@@ -159,7 +151,7 @@ if(!isset($admin_id)){
 
 
 <!-- custom admin js file link  -->
-<script src="js/admin_script.js"></script>
+<script src="../../public/js/admin_script.js"></script>
 
 </body>
 </html>

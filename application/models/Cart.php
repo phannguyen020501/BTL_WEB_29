@@ -9,9 +9,9 @@ class Cart{
     public function __construct($user_id, $name, $price, $quantity, $image) {
 		self::setUser_id($user_id);
         self::setName($name);
-        self::setEmail($price);
-        self::setNumber($quantity);
-        self::setMessage($image);
+        self::setPrice($price);
+        self::setQuantity($quantity);
+        self::setImage($image);
     }
 	public function getUser_id(){
 		return $this->user_id;

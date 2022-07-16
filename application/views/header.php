@@ -17,10 +17,7 @@ if(isset($message)){
       <div class="flex">
          <div class="share">
             <i href="#"  class="fa-light fa-book-open-cover"></i>
-            <!-- <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a> -->
+          
          </div>
          <p> <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a> </p>
       </div>
@@ -46,7 +43,6 @@ if(isset($message)){
                require_once '../../services/CartServices.php';
                $cartservice = new CartServices();
 
-              // $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
                $select_cart_number = $cartservice->get($user_id);
                $cart_rows_number = mysqli_num_rows($select_cart_number); 
             ?>

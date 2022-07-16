@@ -12,7 +12,6 @@ class RegisterServices extends MySqlConnect{
      */
 	public function insertUser($name,$email,$pass,$tpye,$number){
 		$query = "INSERT INTO `users`(name, email, password, user_type,number) VALUES('$name', '$email', '$pass', '$tpye','$number')";
-		//$query  = "insert into `users`(name, email, password, user_type) VALUES($name,$email,$pass,$tpye)";
 		echo $query;
 		parent::addQuerry($query);
 		parent::updateQuery($query);
@@ -42,8 +41,8 @@ class RegisterServices extends MySqlConnect{
 		parent::updateQuery($query);
     }
 
-    public function update($name, $email, $password,$id) {
-		$query  = "UPDATE `users` SET name = $name, email = $price, password = $password  WHERE id = $id";
+    public function update($name, $email,  $password,$id) {
+		$query  = "UPDATE `users` SET name = $name, email = $email, password = $password  WHERE id = $id";
 		parent::addQuerry($query);
 		parent::updateQuery($query);
 	}

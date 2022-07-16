@@ -44,7 +44,6 @@ if(!isset($user_id)){
       <?php
       
 
-         //$order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE user_id = '$user_id'") or die('query failed');
       $orderService = new OrderServices();
       $order_query = $orderService->getFromID($user_id); 
 

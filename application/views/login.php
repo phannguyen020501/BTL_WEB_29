@@ -10,7 +10,6 @@ if(isset($_POST['submit'])){
    require_once '../../services/UserServices.php';
 
    $userservice = new UserServices();
-   // $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
    $select_users = $userservice->getByEmailAndPassword($email,$pass);
 
    if(mysqli_num_rows($select_users) > 0){

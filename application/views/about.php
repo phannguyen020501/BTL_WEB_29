@@ -49,10 +49,10 @@ $listMessage = $messageservice->getAll();
    <div class="flex">
 
       <div class="image" >
-         <img src="../../public/images/aboutbook.jpg" alt="" style = 'height = 100px; '>
+         <img src="../../public/images/aboutbook.jpg" alt="" style = 'height : 100px; '>
       </div>
 
-      <div class="content" style = 'height = 100px; '>
+      <div class="content" style = 'height: 100px; '>
          <h3>Tại sao lại chọn chúng tôi?</h3>
          <p>Cửa hàng luôn phục vụ với sự tận tâm và luôn cố gắng mang lại sự hài lòng nhất cho khách hàng</p>
          <p>Luôn đặt chất lượng lên đầu!!</p>
@@ -151,71 +151,7 @@ $listMessage = $messageservice->getAll();
             <?php
          }
          ?>
-      <!-- <div class="box">
-         <img src="../../public/images/pic-2.png" alt="">
-         <p>Tuyệt vời quá </p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Minh Anh</h3>
-      </div>
-
-      <div class="box">
-         <img src="../../public/images/pic-3.png" alt="">
-         <p>Rất hữu ích</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Quốc Khánh</h3>
-      </div>
-
-      <div class="box">
-         <img src="../../public/images/pic-4.png" alt="">
-         <p>Hệ thống ổn định</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Hồng Vân</h3>
-      </div>
-
-      <div class="box">
-         <img src="../../public/images/pic-5.png" alt="">
-         <p>Quá chất lượng</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Lê văn Đỗ</h3>
-      </div>
-
-      <div class="box">
-         <img src="../../public/images/pic-6.png" alt="">
-         <p>Cần đa dạng thêm sách</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Khánh dz</h3>
-      </div> -->
-
+      
    </div>
 
 </section>
@@ -223,7 +159,6 @@ $listMessage = $messageservice->getAll();
 
 <?php include 'footer.php'; ?>
 
-<!-- custom js file link  -->
 <script src="../../public/js/script.js"></script>
 
 </body>

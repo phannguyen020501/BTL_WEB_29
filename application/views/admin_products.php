@@ -119,7 +119,6 @@ if(isset($_POST['update_product'])){
    
 <?php require_once 'admin_header.php'; ?>
 
-<!-- product CRUD section starts  -->
 
 <section class="add-products">
 
@@ -142,9 +141,7 @@ if(isset($_POST['update_product'])){
 
 </section>
 
-<!-- product CRUD section ends -->
 
-<!-- show products  -->
 
 <section class="show-products">
 

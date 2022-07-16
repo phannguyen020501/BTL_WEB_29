@@ -19,7 +19,6 @@ if(isset($_POST['add_to_cart'])){
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
 
-   //$check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
    $cartservice = new CartServices();
    $check_cart_numbers = $cartservice->getByIdAndName($product_name, $user_id);
@@ -29,7 +28,6 @@ if(isset($_POST['add_to_cart'])){
       $message[] = 'Đã thêm vào giỏ hàng';
    }else{
       
-      //mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
       if($product_quantity > $fetch_product['availability']){
          $message[] = 'Vượt quá số lượng sách hiện có';
       }else{
@@ -80,7 +78,6 @@ if(isset($_POST['add_to_cart'])){
       <?php  
          $productservice = new ProductServices();
 
-        // $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
         $select_products = $productservice->getLimit(6);
         
          if(mysqli_num_rows($select_products) > 0){
