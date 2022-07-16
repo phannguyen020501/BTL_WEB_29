@@ -6,12 +6,14 @@ class Message{
 	private $email;
 	private $number;
 	private $message;
-	public function __construct($user_id, $name, $email, $number, $message) {
+	private $star;
+	public function __construct($user_id, $name, $email, $number, $message,$star) {
 		self::setUser_id($user_id);
         self::setName($name);
         self::setEmail($email);
         self::setNumber($number);
         self::setMessage($message);
+		self::setStar($star);
     }
 	public function getUser_id(){
 		return $this->user_id;
@@ -27,6 +29,9 @@ class Message{
 	}
 	public function getMessage(){
 		return $this->message;
+	}
+	public function getStar(){
+		return $this->star;
 	}
 	
 	public function setUser_id($user_id){
@@ -44,7 +49,11 @@ class Message{
 	public function setMessage($message){
 		$this->message = $message;
 	}
+
 	public function setEmail($email){
 		$this->email = $email;
+	}
+	public function setStar($star){
+		$this->star = $star;
 	}
 }
