@@ -63,7 +63,6 @@ if(isset($_POST['add_to_cart'])){
 
    <div class="content">
       <h3>Một cuốn sách là một giấc mơ mà bạn cầm trong tay. </h3>
-      <!-- <p>Sách là kho báu vô tận, là đúc kết những tinh hoa, tri thức của cả nhân loại, là sự kết tinh của lớp lớp thế hệ. Sở hữu một cuốn sách hay chính là chìa khóa quyền năng để chúng ta có thể chinh phục được những khó khăn, thử thách phía trước nhằm vươn đến thành công. </p> -->
       <a href="about.php" class="white-btn">Khám phá </a>
    </div>
 

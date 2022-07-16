@@ -49,10 +49,10 @@ $listMessage = $messageservice->getAll();
    <div class="flex">
 
       <div class="image" >
-         <img src="../../public/images/aboutbook.jpg" alt="" style = 'height : 100px; '>
+         <img src="../../public/images/aboutbook.jpg" alt="" >
       </div>
 
-      <div class="content" style = 'height: 100px; '>
+      <div class="content" >
          <h3>Tại sao lại chọn chúng tôi?</h3>
          <p>Cửa hàng luôn phục vụ với sự tận tâm và luôn cố gắng mang lại sự hài lòng nhất cho khách hàng</p>
          <p>Luôn đặt chất lượng lên đầu!!</p>
@@ -159,6 +159,7 @@ $listMessage = $messageservice->getAll();
 
 <?php include 'footer.php'; ?>
 
+<!-- custom js file link  -->
 <script src="../../public/js/script.js"></script>
 
 </body>

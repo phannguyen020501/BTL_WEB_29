@@ -99,7 +99,6 @@ if(isset($_POST['add_to_cart'])){
     <!-- card right -->
     <div class = "product-content">
       <h2 class = "product-title"><?php echo $fetch_products['name']; ?></h2>
-      <!--<a href = "#" class = "product-link">visit nike store</a>-->
       <div class style="font-size:2rem;" = "product-rating">
         <i class = "fas fa-star"></i>
         <i class = "fas fa-star"></i>

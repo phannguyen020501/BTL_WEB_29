@@ -100,7 +100,6 @@ if(!isset($admin_id)){
             require_once '../../services/UserServices.php';
             $users = new UserServices();
             $select_users = $users->getAllByType("user");
-            #$select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'user'") or die('query failed');
             $number_of_users = mysqli_num_rows($select_users);
          ?>
          <h3><?php echo $number_of_users; ?></h3>
