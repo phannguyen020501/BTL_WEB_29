@@ -95,7 +95,7 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
       <input type="submit" value="Thêm vào giỏ hàng" name="add_to_cart" class="btn">
-      <button class ="btn"><a href="book_detail.php?id=<?php echo $fetch_products['id']; ?>">book detail</a></button>
+      <button class ="btn"><a href="book_detail.php?id=<?php echo $fetch_products['id']; ?>" style ="color: white;">book detail</a></button>
      </form>
       <?php
          }

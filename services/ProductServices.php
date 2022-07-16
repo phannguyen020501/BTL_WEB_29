@@ -32,10 +32,10 @@ class ProductServices extends MySqlConnect{
     //  * @param Product $product
     //  */
 	public function update($name, $author, $category, $publisher, $availability, $price, $summary, $year, $id) {
-		$query  = "UPDATE `products` SET name = $name, author = $author, category=$category, publisher = $publisher, availability=$availability, price = $price, summary = $summary, year = $year 
-
-
-		 WHERE id = $id";
+		$query  = "UPDATE `products` SET name = '$name', author = '$author',
+				 category='$category', publisher = '$publisher' , availability='$availability',
+				  price = '$price', summary ='$summary', year = '$year' 
+		 WHERE id = '$id'";
 
 		parent::addQuerry($query);
 		parent::updateQuery($query);

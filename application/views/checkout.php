@@ -6,6 +6,7 @@ $user_id = $_SESSION['user_id'];
 require_once '../../services/CartServices.php';
 require_once '../../services/OrderServices.php';
 require_once '../models/Order.php';
+require_once '../../services/ProductServices.php';
 $cartservice = new CartServices();
 $orderservice = new OrderServices();
 
