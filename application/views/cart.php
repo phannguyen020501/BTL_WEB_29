@@ -27,7 +27,7 @@ if(isset($_GET['delete'])){
 }
 
 if(isset($_GET['delete_all'])){
-   $cartservice->delete($user_id);
+   $cartservice->deleteAll($user_id);
    header('location:cart.php');
 }
 
@@ -90,7 +90,7 @@ if(isset($_GET['delete_all'])){
    </div>
 
    <div style="margin-top: 2rem; text-align:center;">
-      <a href="cart.php?delete_all" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('Xóa tất cả sách?');">Xác nhận xóa</a>
+      <a href="cart.php?delete_all=<?php echo 1; ?>" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('Xóa tất cả sách?');">Xác nhận xóa</a>
    </div>
 
    <div class="cart-total">

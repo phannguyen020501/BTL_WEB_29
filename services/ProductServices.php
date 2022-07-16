@@ -1,5 +1,5 @@
 <?php
-require_once '../../application/models/Product.php';
+require_once '../../application/models/Products.php';
 require_once '../../config/config.php';
 require_once 'MySqlConnect.php';
 
@@ -10,10 +10,16 @@ class ProductServices extends MySqlConnect{
     //  * @param Products $product
     //  */
 	public function insert($product){
-        $query  = "insert into `products` (name, price, image) VALUES('"
+        $query  = "insert into `products` (name,author,category,publisher,availability, price,summary, image,year) VALUES('"
         .$product->getName()."', '"
+        .$product->getAuthor()."', '"
+        .$product->getCategory()."', '"
+        .$product->getPublisher()."', '"
+        .$product->getAvailability()."', '"
         .$product->getPrice()."', '"
-        .$product->getImage()."')";
+        .$product->getSummary()."', '"
+        .$product->getImage()."', '"
+        .$product->getYear()."')";
  
         parent::addQuerry($query);
         parent::updateQuery($query);
@@ -25,8 +31,11 @@ class ProductServices extends MySqlConnect{
     //  * The method support insert data to database
     //  * @param Product $product
     //  */
-	public function update($name, $price, $id) {
-		$query  = "UPDATE `products` SET name = $name, price = $price WHERE id = $id";
+	public function update($name, $author, $category, $publisher, $availability, $price, $summary, $year, $id) {
+		$query  = "UPDATE `products` SET name = $name, author = $author, category=$category, publisher = $publisher, availability=$availability, price = $price, summary = $summary, year = $year 
+
+
+		 WHERE id = $id";
 
 		parent::addQuerry($query);
 		parent::updateQuery($query);

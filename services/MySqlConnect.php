@@ -30,7 +30,7 @@ class MySqlConnect implements ISqlConnect {
         $result = mysqli_query($this->db, $this->query);
 
         if(!$result){
-            echo "FAIL when execute!";
+            echo "Thực hiện thất bại!";
             exit();
         }
         return $result;
@@ -42,7 +42,7 @@ class MySqlConnect implements ISqlConnect {
         $result = mysqli_query($this->db, $this->query);
 
         if(!$result){
-            echo "FAIL when update!";
+            echo "Cập nhật thất bại!";
             exit();
         }
 
