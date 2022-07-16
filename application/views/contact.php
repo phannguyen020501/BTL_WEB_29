@@ -1,6 +1,8 @@
 <?php
 
 include '../../config/config.php';
+include '../../services/MessageServices.php';
+include '../../services/UserServices.php';
 
 session_start();
 
@@ -12,22 +14,28 @@ if(!isset($user_id)){
 
 if(isset($_POST['send'])){
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $number = $_POST['number'];
+   $userservice = new UserServices();
+   $user = $userservice->getById($user_id);
+   
+   $name = $user->getName();
+   $email = $user->getEmail();
+   $number = $user->getNumber();
+
+   $star = $_POST['star'];
+   
    $msg = mysqli_real_escape_string($conn, $_POST['message']);
 
-   require_once '../../services/MessageServices.php';
    $select_message = new MessageServices();
 
-   $select_message = mysqli_query($conn, "SELECT * FROM `message` WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'") or die('query failed');
-
-   if(mysqli_num_rows($select_message) > 0){
-      $message[] = 'Phản hồi đã được gửi!';
+   if($msg == null){
+      $message[] = "vui lòng nhập đủ thông tin ";
    }else{
-      mysqli_query($conn, "INSERT INTO `message`(user_id, name, email, number, message) VALUES('$user_id', '$name', '$email', '$number', '$msg')") or die('query failed');
+      $select_message->insert($user_id, $name, $email, $number,$msg,$star);
+      // mysqli_query($conn, "INSERT INTO `message`(user_id, name, email, number, message,star) VALUES('$user_id', '$name', '$email', '$number', '$msg','$star')") or die('query failed');
       $message[] = 'Phản hồi thành công!';
    }
+   
+   
 
 }
 
@@ -60,9 +68,9 @@ if(isset($_POST['send'])){
 
    <form action="" method="post">
       <h3>Phản hồi</h3>
-      <input type="text" name="name" required placeholder="Tên" class="box">
-      <input type="email" name="email" required placeholder="Email" class="box">
-      <input type="number" name="number" required placeholder="Số điện thoại" class="box">
+      <!-- <input type="text" name="name" required placeholder="Tên" class="box">
+      <input type="email" name="email" required placeholder="Email" class="box"> -->
+      <input type="number" name="star" required placeholder="Số sao" class="box" min = 1 max = 5>
       <textarea name="message" class="box" placeholder="Nhập phản hồi" id="" cols="30" rows="10"></textarea>
       <input type="submit" value="Gửi phản hồi" name="send" class="btn">
    </form>
