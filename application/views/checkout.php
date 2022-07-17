@@ -34,9 +34,12 @@ if(isset($_POST['order_btn'])){
       }
    }
    require_once '../../services/ProductServices.php';
+   require_once '../../services/OrderServices.php';
    $total_products = implode(', ',$cart_products);
 
-   $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
+   $order_query= $orderservice->getProductsss($name,$number,$email,$method,$address,$total_products,$cart_total);
+
+   //$order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
 
    if($cart_total == 0){
       $message[] = 'Giỏ hàng trống';
@@ -53,7 +56,7 @@ if(isset($_POST['order_btn'])){
             $product1 = mysqli_fetch_assoc($producti);
             $quantityProduct = $product1['availability'];
             $updateAvailability = $quantityProduct - $cart_item['quantity'];
-            echo $updateAvailability;
+            // echo $updateAvailability;
             $productServices->updateAvailability($updateAvailability,$product1['id']);
          }
          $cartservice->deleteAll($user_id);
