@@ -75,11 +75,10 @@ if(isset($message)){
       <input type="password" name="password" placeholder="Mật khẩu" required class="box">
       <input type="password" name="cpassword" placeholder="Xác nhận mật khẩu" required class="box">
       <input type="tel" name="number" pattern="+84[0-9]{2}-[0-9]{4}-[0-9]{4}" value="+84" required class="box">
-
-      <select name="user_type" class="box">
+      <input type= "hidden" name ="user_type" value = "user" >
+      <!-- <select name="user_type" class="box">
          <option value="user">Người dùng</option>
-         <!-- <option value="admin">Admin</option> -->
-      </select>
+      </select> -->
       <input type="submit" name="submit" value="Đăng ký" class="btn">
       <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
    </form>

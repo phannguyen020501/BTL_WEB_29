@@ -126,15 +126,15 @@ if(isset($_POST['update_product'])){
 
    <form action="" method="post" enctype="multipart/form-data">
       <h3>Thêm sách</h3>
-      <input type="text" name="name" class="box" placeholder="Tên sách" required>
-      <input type="text" name="author" class="box" placeholder="Tên tác giả" required>
-      <input type="text" name="category" class="box" placeholder="Thể Loại" required>
-      <input type="text" name="publisher" class="box" placeholder="Nhà xuất bản" required>
-      <input type="number" name="availability" class="box" placeholder="Số lượng" required>
-      <input type="number" min="0" name="price" class="box" placeholder="Giá sách" required>
-      <input type="text" name="summary" class="box" placeholder="Mô tả" required>
-      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
-      <input type="number" min="0" name="year" class="box" placeholder="Năm xuất bản" required>
+      <input type="text" name="name" class="box" placeholder="Tên sách" required = true>
+      <input type="text" name="author" class="box" placeholder="Tên tác giả" required = true>
+      <input type="text" name="category" class="box" placeholder="Thể Loại" required = true>
+      <input type="text" name="publisher" class="box" placeholder="Nhà xuất bản" required = true>
+      <input type="number" name="availability" class="box" placeholder="Số lượng" required = true>
+      <input type="number" min="0" name="price" class="box" placeholder="Giá sách" required = true>
+      <input type="text" name="summary" class="box" placeholder="Mô tả" required = true>
+      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required = true>
+      <input type="number" min="0" name="year" class="box" placeholder="Năm xuất bản" required = true>
       <input type="submit" value="Thên sách" name="add_product" class="btn">
       
    </form>
@@ -156,11 +156,11 @@ if(isset($_POST['update_product'])){
       <div class="box">
          <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
          <div class="name" ><?php echo $fetch_products['name']; ?></div>
-         <div class="author"><?php echo $fetch_products['author']; ?></div>
+         <!-- <div class="author"><?php echo $fetch_products['author']; ?></div>
          <div class="category"><?php echo $fetch_products['category']; ?></div>
          <div class="publisher"><?php echo $fetch_products['publisher']; ?></div>
-         <div class="availability"><?php echo $fetch_products['availability']; ?></div>
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+         <div class="availability"><?php echo $fetch_products['availability']; ?></div> -->
+         <div class="price">$<?php echo $fetch_products['price']; ?></div>
          <!-- <div class="summary"><?php echo $fetch_products['summary']; ?></div> -->
          <!-- <div class="year"><?php echo $fetch_products['year']; ?></div> -->
          <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">Cập nhập</a>

@@ -19,7 +19,7 @@ if(isset($_POST['order_btn'])){
    $number = $_POST['number'];
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $method = mysqli_real_escape_string($conn, $_POST['method']);
-   $address = mysqli_real_escape_string($conn, 'flat no. '. $_POST['flat'].', '. $_POST['street'].', '. $_POST['city'].', '. $_POST['country'].' - '. $_POST['pin_code']);
+   $address = mysqli_real_escape_string($conn, 'Số nhà '. $_POST['flat'].', '. $_POST['street'].', '. $_POST['city'].', '. $_POST['country'].' - '. $_POST['pin_code']);
    $placed_on = date('d-M-Y');
 
    $cart_total = 0;
@@ -98,7 +98,7 @@ if(isset($_POST['order_btn'])){
             $total_price = ($fetch_cart['price'] * $fetch_cart['quantity']);
             $grand_total += $total_price;
    ?>
-   <p> <?php echo $fetch_cart['name']; ?> <span>(<?php echo '$'.$fetch_cart['price'].'/-'.' x '. $fetch_cart['quantity']; ?>)</span> </p>
+   <!-- <p> <?php echo $fetch_cart['name']; ?> <span>(<?php echo '$'.$fetch_cart['price'].'/-'.' x '. $fetch_cart['quantity']; ?>)</span> </p> -->
    <?php
       }
    }else{
@@ -135,15 +135,11 @@ if(isset($_POST['order_btn'])){
                <option value="paytm">Paytm</option>
             </select>
          </div>
-         <!-- <div class="inputBox">
-            <span>Địa chỉ 01 :</span>
-            <input type="number" min="0" name="flat" required placeholder="Số nhà.">
-         </div>
          <div class="inputBox">
-            <span>Địa chỉ 01 :</span>
             <span>Số nhà :</span>
             <input type="number" min="0" name="flat" required placeholder="Số nhà.">
-         </div> -->
+         </div>
+
          <div class="inputBox">
             <span>Tên đường:</span>
             <input type="text" name="street" required placeholder="Tên đường">
@@ -157,7 +153,7 @@ if(isset($_POST['order_btn'])){
             <input type="text" name="state" required placeholder="Tỉnh/Thành phố">
          </div>
          <div class="inputBox">
-            <span>Quóc gia :</span>
+            <span>Quốc gia :</span>
             <input type="text" name="country" required placeholder="Quốc gia">
          </div>
          <div class="inputBox">

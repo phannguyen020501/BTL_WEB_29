@@ -10,7 +10,7 @@ class MySqlConnect implements ISqlConnect {
     private $query;
 
     public function __construct(){
-        $this->db = mysqli_connect('localhost','root','','shop_db',3308);
+        $this->db = mysqli_connect('localhost','root','','shop_db');
 
         // if($this->db){
         //     echo "connect successfully <br />";
@@ -40,7 +40,7 @@ class MySqlConnect implements ISqlConnect {
     // use with statement insert, delete, update,..
     public function updateQuery(){
         $result = mysqli_query($this->db, $this->query);
-
+        // echo $this->query;
         if(!$result){
             echo "Cập nhật thất bại!";
             exit();

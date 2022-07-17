@@ -13,7 +13,7 @@ if(isset($message)){
 
 <header class="header">
 
-   <div class="header-1">
+   <!-- <div class="header-1">
       <div class="flex">
          <div class="share">
             <i href="#"  class="fa-light fa-book-open-cover"></i>
@@ -21,7 +21,7 @@ if(isset($message)){
          </div>
          <p> <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a> </p>
       </div>
-   </div>
+   </div> -->
 
    <div class="header-2">
       <div class="flex">

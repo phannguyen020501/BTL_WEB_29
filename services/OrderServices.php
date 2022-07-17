@@ -14,7 +14,7 @@ class OrderServices extends MySqlConnect{
 		$total_price = $order->getTotalPrice();
 		$placed_on = $order->getPlacedOn();
 		$query="insert INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$total_price', '$placed_on')";
-		echo $query;
+		
 		parent::addQuerry($query);
 		parent::updateQuery();
 	}
@@ -55,4 +55,15 @@ class OrderServices extends MySqlConnect{
         $result = parent::executeQuery();
         return $result;
 	}
+
+	public function getProductsss($name,$number,$email,$method,$address,$total_products,$cart_total){
+		$query = "SELECT * FROM `orders` 
+				WHERE name = '$name' AND number = '$number' AND email = '$email' 
+				AND method = '$method' AND address = '$address' 
+				AND total_products = '$total_products' AND total_price = '$cart_total'"; 
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+        return $result;
+	}
+		
 }

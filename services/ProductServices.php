@@ -91,5 +91,5 @@ class ProductServices extends MySqlConnect{
 		parent::addQuerry($query);
 		parent::updateQuery($query);
 	}
-
+	
 }
