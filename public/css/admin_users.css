@@ -1,0 +1,32 @@
+.users .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    gap:1.5rem;
+    max-width: 1200px;
+    margin:0 auto;
+    align-items: flex-start;
+ }
+ 
+ .users .box-container .box{
+    background-color: var(--white);
+    padding:2rem;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    text-align: center;
+ }
+ 
+ .users .box-container .box p{
+    padding-bottom: 1.5rem;
+    font-size: 2rem;
+    color:var(--light-color);
+ }
+ 
+ .users .box-container .box p span{
+    color:var(--purple);
+ }
+ 
+ .users .box-container .box .delete-btn{
+    margin-top: 0;
+ }
