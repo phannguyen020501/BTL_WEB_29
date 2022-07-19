@@ -111,7 +111,7 @@ if(isset($_POST['add_to_cart'])){
       </div>
 
       <div class = "product-price">
-        <p style="font-size:2rem; class = "new-price">Price: <span style="font-size:2rem;"><?php echo $fetch_products['price'];?></span></p>
+        <p style="font-size:2rem; class = "new-price">Giá: <span style="font-size:2rem;"><?php echo $fetch_products['price'];?> VND</span></p>
       </div>
 
       <div class = "product-detail">

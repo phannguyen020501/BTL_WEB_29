@@ -68,4 +68,18 @@ class UserServices extends MySqlConnect{
 		return null;
 
 	}
+	public function updatePassword ($email, $pass) {
+        $query = "update users set password = '$pass' where email = '$email'";
+
+        parent::addQuerry($query);
+        parent::updateQuery($query);
+    }
+
+	public function updateNameAndPhone($name, $phone_number, $id) {
+        $query = "update users set name = '$name', number = '$phone_number' where id = $id";
+
+        parent::addQuerry($query);
+        parent::updateQuery($query);
+    }
+
 }

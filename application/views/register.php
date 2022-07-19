@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
    $user_type = $_POST['user_type'];
-   $number = mysqli_real_escape_string($conn, md5($_POST['number']));
+   $number = mysqli_real_escape_string($conn, ($_POST['number']));
    require_once 'C:\xampp\htdocs\BTL_WEB_29\services\RegisterServices.php';
    
    $registerService = new RegisterServices();
@@ -74,7 +74,7 @@ if(isset($message)){
       <input type="email" name="email" placeholder="Email" required class="box">
       <input type="password" name="password" placeholder="Mật khẩu" required class="box">
       <input type="password" name="cpassword" placeholder="Xác nhận mật khẩu" required class="box">
-      <input type="text" name="number" pattern="^((\+84)|0)\d{9,10}$" placeholder="Số điện thoại" required class="box">
+      <input type="text" name="number" pattern="^((\+84)|0)\d{9,10}$" placeholder="Số điện thoại(10 số)" required class="box">
       <input type= "hidden" name ="user_type" value = "user" >
       <!-- <select name="user_type" class="box">
          <option value="user">Người dùng</option>

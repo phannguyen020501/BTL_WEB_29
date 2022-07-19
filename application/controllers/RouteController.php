@@ -39,7 +39,7 @@ class RouteController {
         $controller.=$iparr[0];
         $controller .="Controller"; // example : AboutController, ContactController,...
         
-        echo $controller;
+       
         // include controller
         require_once $controller.'.php';
 

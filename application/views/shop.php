@@ -23,11 +23,11 @@ if(isset($_POST['add_to_cart'])){
    $check_cart_numbers = $searchService->getNameID($product_name,$user_id);
 
    if(mysqli_num_rows($check_cart_numbers) > 0){
-      $message[] = 'Đã thêm vào giỏ hàng!';
+      $message[] = 'Sản phẩm đã có trong giỏ hàng!';
    }else{
 
       $searchService->insertProductToCart($user_id, $product_name, $product_price, $product_quantity, $product_image);
-      $message[] = 'Sản phẩm đã được thêm vào cửa hàng!';
+      $message[] = 'Sản phẩm thêm vào giỏ hàng thành công!';
    }
 
 }
@@ -73,7 +73,7 @@ if(isset($_POST['add_to_cart'])){
      <form action="" method="post" class="box">
       <img class="image" src="public/uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
       <div class="name"><?php echo $fetch_products['name']; ?></div>
-      <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+      <div class="price"><?php echo $fetch_products['price']; ?> VND</div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
       <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">

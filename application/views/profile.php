@@ -1,7 +1,7 @@
 <?php
 
-include '../../config/config.php';
-require_once '../../services/UserServices.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\services\UserServices.php';
 
 session_start();
 
@@ -59,8 +59,8 @@ if(isset($_POST['edit_pass'])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/profile.css">
-   <link rel="stylesheet" href="../../public/css/style.css">
+   <link rel="stylesheet" href="public/css/profile.css">
+   <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 <body>
@@ -93,7 +93,7 @@ if(isset($_POST['edit_pass'])) {
    <form method="post" enctype="multipart/form-data">
       <h3>Tên hiển thị và SĐT</h3>
       <input type="text" name="update_name" value="<?php echo $_SESSION['user_name']; ?>" class="box" required placeholder="Tên hiển thị">
-      <input type="text" name="update_phone" value="<?php echo $_SESSION['user_phone']; ?>" class="box" required placeholder="Số điện thoại">
+      <input type="text" name="update_phone" pattern="^((\+84)|0)\d{9,10}$" value="<?php echo $_SESSION['user_phone']; ?>" class="box" required placeholder="Số điện thoại">
       <input type="submit" value="cập nhật" name="update_user" class="btn">
       <input type="submit" value="hủy" id="close-update" class="option-btn">
    </form>
@@ -119,7 +119,7 @@ if(isset($_POST['edit_pass'])) {
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="../../public/js/script.js"></script>
+<script src="public/js/script.js"></script>
 
 </body>
 </html>
