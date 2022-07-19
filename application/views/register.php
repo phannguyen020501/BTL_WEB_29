@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 
 if(isset($_POST['submit'])){
@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
    $user_type = $_POST['user_type'];
    $number = mysqli_real_escape_string($conn, md5($_POST['number']));
-   require_once '../../services/RegisterServices.php';
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\RegisterServices.php';
    
    $registerService = new RegisterServices();
    $select_users = $registerService->getNameEmail($email,$pass);
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/register.css">
+   <link rel="stylesheet" href="public/css/register.css">
 
 </head>
 <body>

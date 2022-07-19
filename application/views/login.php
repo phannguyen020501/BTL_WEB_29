@@ -1,13 +1,13 @@
 <?php
 
-require_once '../../config/config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 session_start();
 
 if(isset($_POST['submit'])){
 
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-   require_once '../../services/UserServices.php';
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\UserServices.php';
 
    $userservice = new UserServices();
    $select_users = $userservice->getByEmailAndPassword($email,$pass);
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/login_css.css">
+   <link rel="stylesheet" href="public/css/login_css.css">
 
 </head>
 <body>

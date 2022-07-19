@@ -5,6 +5,6 @@ class DefaultController {
   }
 
 	public function __footer(){
-      require_once '../views/footer.php';
+      require_once 'C:\xampp\htdocs\BTL_WEB_29\application\views\footer.php';
     }
 }

@@ -39,7 +39,7 @@ if(isset($message)){
       </div>
 
    </div>
-   <link rel="stylesheet" href="../../public/css/admin_header.css">
+   <link rel="stylesheet" href="public/css/admin_header.css">
 
-   <script src="../../public/js/admin_script.js"></script>
+   <script src="public/js/admin_script.js"></script>
 </header>

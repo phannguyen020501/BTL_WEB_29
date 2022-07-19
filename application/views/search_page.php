@@ -1,6 +1,6 @@
 <?php
 
-include '../../config/config.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 session_start();
 
@@ -17,7 +17,7 @@ if(isset($_POST['add_to_cart'])){
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
 
-   require_once '../../services/CartService.php';
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php';
 
    $searchService = new CartServices();
    $check_cart_numbers = $searchService->getNameID($product_name,$user_id);
@@ -46,7 +46,7 @@ if(isset($_POST['add_to_cart'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/search_page.css">
+   <link rel="stylesheet" href="public/css/search_page.css">
 
 </head>
 <body>
@@ -106,7 +106,7 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="../../public/js/script.js"></script>
+<script src="public/js/script.js"></script>
 
 </body>
 </html>

@@ -23,7 +23,7 @@ if(!isset($admin_id)){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="../../public/css/admin_style.css">
+   <link rel="stylesheet" href="public/css/admin_style.css">
 
 </head>
 <body>
@@ -41,7 +41,7 @@ if(!isset($admin_id)){
       <div class="box">
          <?php
             $total_pendings = 0;
-            require_once '../../services/OrderServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
             $services = new OrderServices();
             $select_pending = $services->getTotalPrice("pending");
 
@@ -58,7 +58,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php
-            require_once '../../services/OrderServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderService.php';
             $total_completed = 0;
             $services = new OrderServices();
             $select_completed = $services->getTotalPrice("completed");
@@ -75,7 +75,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php
-            require_once '../../services/OrderServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderService.php';
             $services = new OrderServices();
             $select_orders = $services->getAll();
             $number_of_orders = mysqli_num_rows($select_orders);
@@ -86,7 +86,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php 
-            require_once '../../services/ProductServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
             $products = new ProductServices();
             $select_products = $products->getAll(); 
             $number_of_products = mysqli_num_rows($select_products);
@@ -97,7 +97,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php 
-            require_once '../../services/UserServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\UserServices.php';
             $users = new UserServices();
             $select_users = $users->getAllByType("user");
             $number_of_users = mysqli_num_rows($select_users);
@@ -108,7 +108,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php 
-            require_once '../../services/ProductServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
             $admins = new UserServices();
             $select_admins = $admins->getAllByType("admin");
             $number_of_admins = mysqli_num_rows($select_admins);
@@ -119,7 +119,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php 
-            require_once '../../services/ProductServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
             $accounts = new UserServices();
             $select_account = $accounts->getAll();
             $number_of_account = mysqli_num_rows($select_account);
@@ -130,7 +130,7 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php 
-            require_once '../../services/MessageServices.php';
+            require_once 'C:\xampp\htdocs\BTL_WEB_29\services\MessageServices.php';
             $messages = new MessageServices();
             $select_messages = $messages->getAll();
             $number_of_messages = mysqli_num_rows($select_messages);
@@ -150,7 +150,7 @@ if(!isset($admin_id)){
 
 
 <!-- custom admin js file link  -->
-<script src="../../public/js/admin_script.js"></script>
+<script src="public/js/admin_script.js"></script>
 
 </body>
 </html>

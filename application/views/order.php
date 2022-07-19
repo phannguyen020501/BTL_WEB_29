@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../config/config.php';
-require_once '../../services/OrderServices.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
 session_start();
 
 $user_id = $_SESSION['user_id'];
@@ -24,7 +24,7 @@ if(!isset($user_id)){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/order.css">
+   <link rel="stylesheet" href="public/css/order.css">
 
 </head>
 <body>
@@ -75,7 +75,7 @@ if(!isset($user_id)){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="../../public/js/script.js"></script>
+<script src="public/js/script.js"></script>
 
 </body>
 </html>

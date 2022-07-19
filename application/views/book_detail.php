@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../config/config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 session_start();
 
@@ -9,9 +9,11 @@ $user_id = $_SESSION['user_id'];
 if(!isset($user_id)){
    header('location:login.php');
 }
-require_once '../../services/ProductServices.php';
-include '../../services/CartServices.php';
-$idProduct = $_GET['id'];
+require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php';
+
+$idProduct =  $_GET['id'];
+
 $productServices = new ProductServices();
 $product = $productServices->getFromID($idProduct);
 $fetch_products = mysqli_fetch_assoc($product);
@@ -54,7 +56,7 @@ if(isset($_POST['add_to_cart'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/book_detail.css">
+   <link rel="stylesheet" href="public/css/book_detail.css">
 
 </head>
 <body>
@@ -76,22 +78,22 @@ if(isset($_POST['add_to_cart'])){
       <div class = "img-select">
         <div class = "img-item">
           <a href = "#" data-id = "1">
-            <img src = "uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
           </a>
         </div>
         <div class = "img-item">
           <a href = "#" data-id = "2">
-            <img src = "uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
           </a>
         </div>
         <div class = "img-item">
           <a href = "#" data-id = "3">
-            <img src = "uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
           </a>
         </div>
         <div class = "img-item">
           <a href = "#" data-id = "4">
-            <img src = "uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
           </a>
         </div>
       </div>
@@ -146,7 +148,7 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="../../public/js/book_detail.js"></script>
+<script src="public/js/book_detail.js"></script>
 
 </body>
 </html>

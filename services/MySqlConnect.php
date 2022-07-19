@@ -3,14 +3,14 @@
 //require_once ROOT . DS . 'config' . DS . 'db_config.php';
 //require_once ROOT . DS . 'services' . DS . 'ISqlConnect.php';
 require_once 'ISqlConnect.php';
-require_once '../../config/config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 class MySqlConnect implements ISqlConnect {
     private $db;
     private $query;
 
     public function __construct(){
-        $this->db = mysqli_connect('localhost','root','','shop_db');
+        $this->db = mysqli_connect('localhost','root','','shop_db',3308);
 
         // if($this->db){
         //     echo "connect successfully <br />";

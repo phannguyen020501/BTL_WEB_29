@@ -1,6 +1,6 @@
 <?php
 
-include '../../config/config.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 session_start();
 
@@ -12,7 +12,7 @@ if(!isset($admin_id)){
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   require_once '../../services/MessageServices.php';
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\MessageServices.php';
    $select_message = new MessageServices();
    $select_message->delete($delete_id);
    header('location:admin_contacts.php');
@@ -30,7 +30,7 @@ if(isset($_GET['delete'])){
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <link rel="stylesheet" href="../../public/css/admin_style.css">
+   <link rel="stylesheet" href="public/css/admin_style.css">
 
 </head>
 <body>
@@ -44,7 +44,7 @@ if(isset($_GET['delete'])){
    <div class="box-container">
    <?php
 
-      require_once '../../services/MessageServices.php';
+      require_once 'C:\xampp\htdocs\BTL_WEB_29\services\MessageServices.php';
       $messageServices = new MessageServices();
       $select_message = $messageServices->getAll();
       if(mysqli_num_rows($select_message) > 0){
@@ -72,7 +72,7 @@ if(isset($_GET['delete'])){
 
 
 <!-- custom admin js file link  -->
-<script src="../../public/js/admin_script.js"></script>
+<script src="public/js/admin_script.js"></script>
 
 </body>
 </html>

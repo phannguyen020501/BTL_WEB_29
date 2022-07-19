@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../config/config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 session_start();
 
@@ -11,7 +11,7 @@ if(!isset($admin_id)){
 }
 
 if(isset($_POST['update_order'])){
-   require_once '../../services/OrderServices.php';
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
    $order_update_id = $_POST['order_id'];
    $update_payment = $_POST['update_payment'];
    
@@ -23,7 +23,7 @@ if(isset($_POST['update_order'])){
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   require_once '../../services/OrderServices.php';
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderService.php';
    $orderServices = new OrderServices();
    $orderServices->delete($delete_id);
    header('location:admin_orders.php');
@@ -43,7 +43,7 @@ if(isset($_GET['delete'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="../../public/css/admin_style.css">
+   <link rel="stylesheet" href="public/css/admin_style.css">
 
 </head>
 <body>
@@ -56,7 +56,7 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
       <?php
-      require_once '../../services/OrderServices.php';
+      require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
       $services = new OrderServices();
       $select_orders = $services->getAll();
       if(mysqli_num_rows($select_orders) > 0){
@@ -97,7 +97,7 @@ if(isset($_GET['delete'])){
 
 
 <!-- custom admin js file link  -->
-<script src="../../public/js/admin_script.js"></script>
+<script src="public/js/admin_script.js"></script>
 
 </body>
 </html>
