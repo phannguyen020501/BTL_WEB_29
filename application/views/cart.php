@@ -1,6 +1,6 @@
 <?php
 
-require '../../services/CartServices.php';
+require 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php';
 
 session_start();
 
@@ -45,8 +45,8 @@ if(isset($_GET['delete_all'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/cart.css">
-   <link rel="stylesheet" href="../../public/css/style.css">
+   <link rel="stylesheet" href="public/css/cart.css">
+   <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 <body>
@@ -113,7 +113,7 @@ if(isset($_GET['delete_all'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="../../public/js/script.js"></script>
+<script src="public/js/script.js"></script>
 
 </body>
 </html>

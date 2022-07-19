@@ -1,8 +1,8 @@
 <?php
 
-include '../../config/config.php';
-include '../../services/MessageServices.php';
-include '../../services/UserServices.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\services\MessageServices.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\services\UserServices.php';
 
 session_start();
 
@@ -46,13 +46,13 @@ if(isset($_POST['send'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Contact</title>
+   <title>Phản hồi</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/contact_css.css">
+   <link rel="stylesheet" href="public/css/contact_css.css">
 
 </head>
 <body>
@@ -60,7 +60,7 @@ if(isset($_POST['send'])){
 <?php include 'header.php'; ?>
 
 <div class="heading">
-   <h3>Liên hệ</h3>
+   <h3>Phản hồi</h3>
 </div>
 
 <section class="contact">
@@ -79,7 +79,7 @@ if(isset($_POST['send'])){
 <?php include 'footer.php'; ?>
 
 <!-- custom js file link  -->
-<script src="../../public/js/script.js"></script>
+<script src="public/js/script.js"></script>
 
 </body>
 </html>

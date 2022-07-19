@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../application/models/User.php';
-require_once '../../config/config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\application\models\User.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 require_once 'MySqlConnect.php';
 
 class RegisterServices extends MySqlConnect{

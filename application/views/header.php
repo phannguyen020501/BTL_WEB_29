@@ -31,7 +31,7 @@ if(isset($message)){
             <a href="home.php">Trang chủ</a>
             <a href="about.php">Thông tin</a>
             <a href="shop.php">Cửa hàng</a>
-            <a href="contact.php">Liên hệ</a>
+            <a href="contact.php">Phản hồi</a>
             <a href="order.php">Đặt sách</a>
          </nav>
 
@@ -40,7 +40,7 @@ if(isset($message)){
             <a href="search_page.php" class="fas fa-search"></a>
             <div id="user-btn" class="fas fa-user"></div>
             <?php
-               require_once '../../services/CartServices.php';
+               require_once 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php';
                $cartservice = new CartServices();
 
                $select_cart_number = $cartservice->get($user_id);
@@ -57,7 +57,7 @@ if(isset($message)){
       </div>
    </div>
 
-   <link rel="stylesheet" href="../../public/css/header.css">
+   <link rel="stylesheet" href="public/css/header.css">
    
    <script src="../../public/js/script.js"></script>
 </header>

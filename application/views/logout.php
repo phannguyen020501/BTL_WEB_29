@@ -1,6 +1,6 @@
 <?php
 
-include '../../config/config.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 
 session_start();
 session_unset();

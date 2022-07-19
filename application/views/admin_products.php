@@ -1,8 +1,8 @@
 <?php
 
-require_once '../../config/config.php';
-require_once '../../services/ProductServices.php';
-require_once '../models/Products.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\application\models\Products.php';
 
 session_start();
 
@@ -111,8 +111,8 @@ if(isset($_POST['update_product'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="../../public/css/admin_products.css">
-   <link rel="stylesheet" href="../../public/css/style.css">
+   <link rel="stylesheet" href="public/css/admin_products.css">
+   <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 <body>
@@ -221,7 +221,7 @@ if(isset($_POST['update_product'])){
 
 
 <!-- custom admin js file link  -->
-<script src="../../public/js/admin_script.js"></script>
+<script src="public/js/admin_script.js"></script>
 
 </body>
 </html>

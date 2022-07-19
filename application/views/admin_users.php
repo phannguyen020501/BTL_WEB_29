@@ -1,5 +1,5 @@
 <?php
-require_once '../../services/UserServices.php';
+require_once 'C:\xampp\htdocs\BTL_WEB_29\services\UserServices.php';
 session_start();
 
 $admin_id = $_SESSION['admin_id'];
@@ -30,7 +30,7 @@ if(isset($_GET['delete'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="../../public/css/admin_users.css">
+   <link rel="stylesheet" href="public/css/admin_users.css">
    <!-- <link rel="stylesheet" href="../../scripts/css/style.css"> -->
 
 </head>
@@ -70,7 +70,7 @@ if(isset($_GET['delete'])){
 
 
 <!-- custom admin js file link  -->
-<script src="../../scripts/js/admin_script.js"></script>
+<script src="public/js/admin_script.js"></script>
 
 </body>
 </html>

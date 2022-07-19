@@ -1,8 +1,8 @@
 <?php
 
-include '../../config/config.php';
-include '../../services/CartServices.php';
-include '../../services/ProductServices.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php';
+include 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
 
 session_start();
 
@@ -52,7 +52,7 @@ if(isset($_POST['add_to_cart'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../../public/css/home.css" >
+   <link rel="stylesheet" href="public/css/home.css" >
 
 </head>
 <body>
@@ -83,7 +83,7 @@ if(isset($_POST['add_to_cart'])){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
      <form action="" method="post" class="box">
-      <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+      <img class="image" src="public/uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
       <div class="name"><?php echo $fetch_products['name']; ?></div>
       <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
@@ -91,7 +91,7 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
       <input type="submit" value="Thêm vào giỏ hàng" name="add_to_cart" class="btn">
-      <button class ="btn" ><a href="book_detail.php?id=<?php echo $fetch_products['id']; ?>" style="color:white;">book detail</a></button>
+      <button class ="btn" ><a href="book_detail.php&id=<?php echo $fetch_products['id']; ?>" style="color:white;">book detail</a></button>
      </form>
       <?php
          }
@@ -112,7 +112,7 @@ if(isset($_POST['add_to_cart'])){
    <div class="flex">
 
       <div class="image">
-         <img src="../../public/images/aboutbook.jpg" alt="">
+         <img src="public\images\aboutbook.jpg" alt="">
       </div>
 
       <div class="content">
@@ -143,7 +143,7 @@ if(isset($_POST['add_to_cart'])){
 
 <!-- custom js file link  -->
 
-<script src="../../public/js/script.js"></script>
+<script src="public/js/script.js"></script>
 
 </body>
 </html>
