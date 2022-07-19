@@ -57,7 +57,7 @@ if(isset($_GET['delete'])){
       <p> Số điện thoại : <span><?php echo $fetch_message['number']; ?></span> </p>
       <p> Email : <span><?php echo $fetch_message['email']; ?></span> </p>
       <p> Phản hồi : <span><?php echo $fetch_message['message']; ?></span> </p>
-      <a href="admin_contacts.php?delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('Xóa phản hồi?');" class="delete-btn">Xóa phản hồi</a>
+      <a href="admin_contacts.php&delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('Xóa phản hồi?');" class="delete-btn">Xóa phản hồi</a>
    </div>
    <?php
       };

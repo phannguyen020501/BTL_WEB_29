@@ -52,7 +52,7 @@ if(isset($_GET['delete'])){
          <p> Tên : <span><?php echo $fetch_users['name']; ?></span> </p>
          <p> Email : <span><?php echo $fetch_users['email']; ?></span> </p>
          <p> Chức vụ : <span style="color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'var(--orange)'; } ?>"><?php echo $fetch_users['user_type']; ?></span> </p>
-         <a href="admin_users.php?delete=<?php echo $fetch_users['id']; ?>" onclick="return confirm('Xóa người dùng này?');" class="delete-btn">Xóa</a>
+         <a href="admin_users.php&delete=<?php echo $fetch_users['id']; ?>" onclick="return confirm('Xóa người dùng này?');" class="delete-btn">Xóa</a>
       </div>
       <?php
          };

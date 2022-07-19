@@ -80,10 +80,10 @@ if(isset($_GET['delete'])){
                <option value="completed">Đã xác nhận</option>
             </select>
             <input type="submit" value="Cập nhập" name="update_order" class="option-btn">
-            <a href="admin_orders.php?delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('Bạn chắc chắn xóa sản phẩm này?');" class="delete-btn">Xóa</a>
+            <a href="admin_orders.php&delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('Bạn chắc chắn xóa sản phẩm này?');" class="delete-btn">Xóa</a>
          </form>
       </div>
-      <?php
+      <?php 
          }
       }else{
          echo '<p class="empty">Không thể đặt sách!</p>';

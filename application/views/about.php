@@ -131,7 +131,6 @@ $listMessage = $messageservice->getAll();
                   </div>
                   <?php        
                   }
-
                   else if($star == 5){
                      ?>
                      <div class="stars">
