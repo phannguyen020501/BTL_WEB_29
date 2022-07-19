@@ -72,7 +72,7 @@ if(isset($_POST['order_btn'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>checkout</title>
+   <title>Đặt hàng</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -107,7 +107,7 @@ if(isset($_POST['order_btn'])){
       echo '<p class="empty">Giỏ hàng trống</p>';
    }
    ?>
-   <div class="grand-total"> Tổng  : <span>$<?php echo $grand_total; ?>/-</span> </div>
+   <div class="grand-total"> Tổng: <span>$<?php echo $grand_total; ?></span> </div>
 
 </section>
 
@@ -117,19 +117,19 @@ if(isset($_POST['order_btn'])){
       <h3>Thông tin đặt hàng</h3>
       <div class="flex">
          <div class="inputBox">
-            <span>Tên :</span>
-            <input type="text" name="name" required placeholder="Tên">
+            <span>Tên:</span>
+            <input type="text" name="name" value="<?php echo $_SESSION['user_name']; ?>" required placeholder="Tên">
          </div>
          <div class="inputBox">
             <span>Số điện thoại:</span>
-            <input type="number" name="number" required placeholder="Số điện thoại">
+            <input type="number" name="number" value="<?php echo $_SESSION['user_phone']; ?>" required placeholder="Số điện thoại">
          </div>
          <div class="inputBox">
-            <span>Email :</span>
-            <input type="email" name="email" required placeholder="Email">
+            <span>Email:</span>
+            <input type="email" name="email" value="<?php echo $_SESSION['user_email']; ?>" required placeholder="Email">
          </div>
          <div class="inputBox">
-            <span>Phương thức thanh toán :</span>
+            <span>Phương thức thanh toán:</span>
             <select name="method">
                <option value="cash on delivery">Thanh toán sau khi nhận hàng</option>
                <option value="credit card">Thanh toán thẻ</option>
@@ -155,12 +155,12 @@ if(isset($_POST['order_btn'])){
             <input type="text" name="state" required placeholder="Tỉnh/Thành phố">
          </div>
          <div class="inputBox">
-            <span>Quốc gia :</span>
+            <span>Quốc gia:</span>
             <input type="text" name="country" required placeholder="Quốc gia">
          </div>
          <div class="inputBox">
-            <span>pin code :</span>
-            <input type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
+            <span>Pin code:</span>
+            <input type="number" min="0" name="pin_code" required placeholder="Pin code">
          </div>
       </div>
       <input type="submit" value="Đặt hàng ngay" class="btn" name="order_btn">

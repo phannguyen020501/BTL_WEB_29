@@ -74,7 +74,7 @@ if(isset($message)){
       <input type="email" name="email" placeholder="Email" required class="box">
       <input type="password" name="password" placeholder="Mật khẩu" required class="box">
       <input type="password" name="cpassword" placeholder="Xác nhận mật khẩu" required class="box">
-      <input type="tel" name="number" pattern="+84[0-9]{2}-[0-9]{4}-[0-9]{4}" value="+84" required class="box">
+      <input type="text" name="number" pattern="^((\+84)|0)\d{9,10}$" placeholder="Số điện thoại" required class="box">
       <input type= "hidden" name ="user_type" value = "user" >
       <!-- <select name="user_type" class="box">
          <option value="user">Người dùng</option>
