@@ -72,7 +72,7 @@ class ProductServices extends MySqlConnect{
         return $result;
 	}
 
-	public function deleteFromID($id) {
+	public function deleteFromID($id,) {
 		$query = "delete from products where id = '$id'";
 
         parent::addQuerry($query);

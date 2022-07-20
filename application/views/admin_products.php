@@ -4,6 +4,7 @@ require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
 require_once 'C:\xampp\htdocs\BTL_WEB_29\application\models\Products.php';
 
+
 session_start();
 
 $admin_id = $_SESSION['admin_id'];
@@ -50,12 +51,16 @@ if(isset($_POST['add_product'])){
 }
 
 if(isset($_GET['delete'])){
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php'; 
+
    $delete_id = $_GET['delete'];
    $productservice = new ProductServices();
    $delete_image_query = $productservice->getFromID($delete_id);
-
    $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
    unlink('uploaded_img/'.$fetch_delete_image['image']);
+   $cardservice = new CartServices();
+   $cardservice = $cardservice->deleteProductByName($fetch_delete_image['name']);
+   
    $productservice->deleteFromID($delete_id);
    header('location:admin_products.php');
 }

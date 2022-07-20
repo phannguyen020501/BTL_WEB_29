@@ -73,4 +73,11 @@ class CartServices extends MySqlConnect{
 		parent::updateQuery($query);
 		
 	}
+	public function deleteProductByName($name) {
+        $query = "delete from `cart` WHERE name = '$name'";
+		echo $query;
+        parent::addQuerry($query);
+		parent::updateQuery($query);
+
+    }
 }
