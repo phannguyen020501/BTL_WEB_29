@@ -56,6 +56,8 @@ if(isset($_POST['submit'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="public/css/login_css.css">
+   <link rel="stylesheet" href="public/css/style2.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 </head>
 <body>
@@ -73,7 +75,7 @@ if(isset($message)){
 }
 ?>
    
-<div class="form-container">
+<!-- <div class="form-container">
 
    <form action="" method="post">
       <h3>ĐĂNG NHẬP</h3>
@@ -83,7 +85,52 @@ if(isset($message)){
       <p>Chưa có tài khoản?<a href="register.php">Đăng ký </a></p>
    </form>
 
-</div>
+</div> -->
+<body>
+	<div class="container">
+		<div class="top" style="height:200px;">
+			<h1 id="title" class="hidden" style="max-width:600px;padding-top: 60px;" ><span id="logo" style="width:800px;">BOOK STORE</span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<form action="" method="post">
+            <div class="box-header">
+               <h2>Log In</h2>
+            </div>
+            <label for="username">Username</label>
+            <br/>
+            <input type="email" name="email" placeholder="Tên đăng nhập" required class="box" type="text" id="username">
+            <br/>
+            <label for="password">Password</label>
+            <br/>
+            <input type="password" name="password" placeholder="Mật khẩu" required class="box" type="password" id="password">
+            <br/>
+            <button type="submit" name="submit" value="Đăng nhập" class="btn">Sign In</button>
+            <br/>
+		      
+		      <p>Chưa có tài khoản?<a href="register.php">Đăng ký </a></p>
+		    </form>
+		</div>
+	</div>
+</body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
 
 
 </body>
