@@ -24,7 +24,7 @@ if(isset($_POST['update_order'])){
 if(isset($_GET['delete'])){
    require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
    $delete_id = $_GET['delete'];
-   
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
    $orderServices = new OrderServices();
    $orderServices->delete($delete_id);
    header('location:admin_orders.php');
@@ -71,7 +71,7 @@ if(isset($_GET['delete'])){
          <p> Email : <span><?php echo $fetch_orders['email']; ?></span> </p>
          <p> Địa chỉ : <span><?php echo $fetch_orders['address']; ?></span> </p>
          <p> Tổng số lượng : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
-         <p> Tổng giá : <span>$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+         <p> Tổng giá : <span><?php echo $fetch_orders['total_price']; ?> VND</span> </p>
          <p> Phương thức thanh toán : <span><?php echo $fetch_orders['method']; ?></span> </p>
          <form action="" method="post">
             <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">

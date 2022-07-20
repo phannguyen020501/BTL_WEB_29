@@ -59,18 +59,16 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="search-form">
    <form action="" method="post">
-      <input type="text" name="search" placeholder="Tìm sách..." class="box">
+      <input type="text" name="search" placeholder="Tìm sách.." class="box" onkeyup="myFunction()">
       <input type="submit" name="submit" value="Tìm kiếm" class="btn">
    </form>
 </section>
 
-<!-- <script>
-   $('.box').onkeyup(function(){
-      var txt = $('.box').val();
-      $.post('')
-
-   })
-</script> -->
+<script>
+function myFunction() {
+   
+}
+</script>
 
 <section class="products" style="padding-top: 0;">
 

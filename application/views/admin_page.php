@@ -52,8 +52,8 @@ if(!isset($admin_id)){
                };
             };
          ?>
-         <h3>$<?php echo $total_pendings; ?></h3>
-         <p>Đang xử lý</p>
+         <h3><?php echo $total_pendings; ?></h3>
+         <p>Đang xử lý (VND)</p>
       </div>
 
       <div class="box">
@@ -69,8 +69,8 @@ if(!isset($admin_id)){
                };
             };
          ?>
-         <h3>$<?php echo $total_completed; ?></h3>
-         <p>Đã thanh toán</p>
+         <h3><?php echo $total_completed; ?></h3>
+         <p>Đã thanh toán (VND)</p>
       </div>
 
       <div class="box">
