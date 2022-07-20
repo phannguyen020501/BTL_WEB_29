@@ -47,7 +47,17 @@ if(isset($_POST['add_to_cart'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="public/css/search_page.css">
+   <link rel="stylesheet" href="public/css/search.css">
 
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+      
+  </style>
+   
 </head>
 <body>
    
@@ -59,16 +69,47 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="search-form">
    <form action="" method="post">
-      <input type="text" name="search" placeholder="Tìm sách.." class="box" onkeyup="myFunction()">
+      <input type="text" name="search" placeholder="Tìm sách.." class="box" id = "search" onkeyup="searchfunc()" >
       <input type="submit" name="submit" value="Tìm kiếm" class="btn">
-   </form>
+        </form>
 </section>
 
-<script>
-function myFunction() {
-   
-}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Tên</th>
+      <th scope="col">Tác giả </th>
+      <th scope="col">Thể loại</th>
+      <th scope="col">Nhà xuất bản</th>
+      <th scope="col">Chi tiết</th>
+    </tr>
+  </thead>
+  <tbody id="output">
+    
+  </tbody>
+</table>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#search").keyup(function(){
+      $.ajax({
+        type:'POST',
+        url:'search.php',
+        data:{
+          name:$("#search").val(),
+        },
+        success:function(data){
+          $("#output").html(data);
+        }
+      });
+    });
+  });
+
+  
 </script>
+
 
 <section class="products" style="padding-top: 0;">
 
