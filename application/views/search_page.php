@@ -59,10 +59,18 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="search-form">
    <form action="" method="post">
-      <input type="text" name="search" placeholder="Tìm sách.." class="box">
+      <input type="text" name="search" placeholder="Tìm sách..." class="box">
       <input type="submit" name="submit" value="Tìm kiếm" class="btn">
    </form>
 </section>
+
+<!-- <script>
+   $('.box').onkeyup(function(){
+      var txt = $('.box').val();
+      $.post('')
+
+   })
+</script> -->
 
 <section class="products" style="padding-top: 0;">
 
@@ -74,10 +82,11 @@ if(isset($_POST['add_to_cart'])){
          if(mysqli_num_rows($select_products) > 0){
          while($fetch_product = mysqli_fetch_assoc($select_products)){
    ?>
+
    <form action="" method="post" class="box">
       <img src="uploaded_img/<?php echo $fetch_product['image']; ?>" alt="" class="image">
       <div class="name"><?php echo $fetch_product['name']; ?></div>
-      <div class="price">$<?php echo $fetch_product['price']; ?>/-</div>
+      <div class="price"><?php echo $fetch_product['price']; ?> VND</div>
       <input type="number"  class="qty" name="product_quantity" min="1" value="1">
       <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">

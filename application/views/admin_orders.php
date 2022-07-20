@@ -22,8 +22,9 @@ if(isset($_POST['update_order'])){
 }
 
 if(isset($_GET['delete'])){
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
    $delete_id = $_GET['delete'];
-   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderService.php';
+   
    $orderServices = new OrderServices();
    $orderServices->delete($delete_id);
    header('location:admin_orders.php');
