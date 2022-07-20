@@ -13,7 +13,7 @@ class MessageServices extends MySqlConnect{
 	}
 
 	public function getAll(){
-		$query = "select * from message";
+		$query = "select * from message ";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
 		return $result;
@@ -47,6 +47,19 @@ class MessageServices extends MySqlConnect{
 		$query = "DELETE FROM `message` WHERE id = ".$message_id;
 		parent::addQuerry($query);
         $result = parent::executeQuery();
+	}
+
+	public function getCountId(){
+		$query = "select count(id) as total from `message`";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getMessageByStart($start,$limit){
+		$query = "SELECT * FROM `message` LIMIT $start, $limit";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
 	}
 
 	

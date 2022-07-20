@@ -23,6 +23,7 @@ if(isset($_POST['update_cart'])){
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $cartservice->delete($delete_id);
+   
    header('location:cart.php');
 }
 
@@ -69,7 +70,7 @@ if(isset($_GET['delete_all'])){
             while($fetch_cart = mysqli_fetch_assoc($select_cart)){   
       ?>
       <div class="box">
-         <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times" onclick="return confirm('Xóa sách?');"></a>
+         <a href="cart.php&delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times" onclick="return confirm('Xóa sách?');"></a>
          <img src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
          <div class="name"><?php echo $fetch_cart['name']; ?></div>
          <div class="price"><?php echo $fetch_cart['price']; ?> VND</div>
@@ -90,7 +91,7 @@ if(isset($_GET['delete_all'])){
    </div>
 
    <div style="margin-top: 2rem; text-align:center;">
-      <a href="cart.php?delete_all=<?php echo 1; ?>" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('Xóa tất cả sách?');">Xác nhận xóa</a>
+      <a href="cart.php&delete_all=<?php echo 1; ?>" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('Xóa tất cả sách?');">Xác nhận xóa</a>
    </div>
 
    <div class="cart-total">

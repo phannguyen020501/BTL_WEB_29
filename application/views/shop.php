@@ -83,6 +83,9 @@ if(isset($_POST['add_to_cart'])){
          }
       
          $start = ($current_page - 1)*$limit;
+         if($start<0){
+            $start=0;
+         }
          $result = $productServices->getProduct($start,$limit);
          
          $select = new ProductServices();

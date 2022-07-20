@@ -172,6 +172,9 @@ if(isset($_POST['update_product'])){
          }
 
          $start = ($current_page - 1)*$limit;
+         if($start<0){
+            $start=0;
+         }
          $result = $productServices->getProduct($start,$limit);
 
          $productservice = new ProductServices();

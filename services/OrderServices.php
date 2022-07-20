@@ -21,7 +21,7 @@ class OrderServices extends MySqlConnect{
 	}
 	public function getAll(){
 		$listOrder = array();
-		$query = "select * from `orders` where 1";
+		$query = "select * from `orders` order by id DESC";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;
@@ -64,5 +64,30 @@ class OrderServices extends MySqlConnect{
         $result = parent::executeQuery();
         return $result;
 	}
-		
+	
+	public function getCountId(){
+		$query = "select count(id) as total from orders";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getCountIdByUserId($id){
+		$query = "select count(id) as total from orders  where user_id = ".$id;
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getOrderByStart($start,$limit){
+		$query = "SELECT * FROM orders order by id DESC LIMIT $start, $limit";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getOrderByStartUser($start,$limit,$user_id){
+		$query = "SELECT * FROM orders Where user_id= ".$user_id." order by id DESC LIMIT $start, $limit";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+
 }

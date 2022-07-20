@@ -45,10 +45,37 @@ if(isset($_GET['delete'])){
    <?php
 
       require_once 'C:\xampp\htdocs\BTL_WEB_29\services\MessageServices.php';
+
       $messageServices = new MessageServices();
+      
+      $countMessage = $messageServices->getCountId();
+      
+      $row = mysqli_fetch_assoc($countMessage);
+      $total_records = $row['total'];
+
+      $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+      $limit = 6;
+
+      $total_page = ceil($total_records/$limit);
+      if($current_page > $total_page){
+         $current_page = $total_page;
+      }
+      else if($current_page<1){
+         $current_page = 1;
+      }
+
+      $start = ($current_page - 1)*$limit;
+      if($start<0){
+         $start=0;
+      }
+      $result = $messageServices->getMessageByStart($start,$limit);
+      
       $select_message = $messageServices->getAll();
+
+
+
       if(mysqli_num_rows($select_message) > 0){
-         while($fetch_message = mysqli_fetch_assoc($select_message)){
+         while($fetch_message = mysqli_fetch_assoc($result)){
       
    ?>
    <div class="box">
@@ -67,6 +94,23 @@ if(isset($_GET['delete'])){
    ?>
    </div>
 
+   <div style="text-align:center; font-size:2rem;">
+   <?php
+   if($current_page > 1 && $total_page > 1){
+      echo '<a href="admin_contacts.php&page=' .($current_page-1).'">Prev</a> | ';
+   }
+   for($i=1;$i<=$total_page;$i++){
+      if($i == $current_page){
+         echo '<span>'.$i.'</span> | ';
+      }else{
+         echo '<a href="admin_contacts.php&page='.($i).'">'.$i.'</a> | ';
+      }
+   }
+   if($current_page < $total_page&&$total_page >1){
+      echo '<a href = "admin_contacts.php&page='.($current_page+1).'">Next</a> |';
+   }
+   ?>
+   </div>
 </section>
 
 

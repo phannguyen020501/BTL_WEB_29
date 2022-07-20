@@ -82,4 +82,17 @@ class UserServices extends MySqlConnect{
         parent::updateQuery($query);
     }
 
+	public function getCountId(){
+		$query = "select count(id) as total from users";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getUserByStart($start,$limit){
+		$query = "SELECT * FROM users LIMIT $start, $limit";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+
 }

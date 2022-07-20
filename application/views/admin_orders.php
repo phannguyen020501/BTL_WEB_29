@@ -57,11 +57,34 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
       <?php
+
       require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
+      $orderServices = new OrderServices();
+      $countOrders = $orderServices->getCountId();
+      $row = mysqli_fetch_assoc($countOrders);
+      $total_records = $row['total'];
+
+      $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+      $limit = 3;
+
+      $total_page = ceil($total_records/$limit);
+      if($current_page > $total_page){
+         $current_page = $total_page;
+      }
+      else if($current_page<1){
+         $current_page = 1;
+      }
+
+      $start = ($current_page - 1)*$limit;
+      if($start<0){
+         $start=0;
+      }
+      $result = $orderServices->getOrderByStart($start,$limit);
+
       $services = new OrderServices();
       $select_orders = $services->getAll();
       if(mysqli_num_rows($select_orders) > 0){
-         while($fetch_orders = mysqli_fetch_assoc($select_orders)){
+         while($fetch_orders = mysqli_fetch_assoc($result)){
       ?>
       <div class="box">
          <p> Id: <span><?php echo $fetch_orders['user_id']; ?></span> </p>
@@ -77,8 +100,8 @@ if(isset($_GET['delete'])){
             <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
             <select name="update_payment">
                <!-- <option value="" selected disabled><?php echo $fetch_orders['payment_status']; ?></option> -->
-               <option value="pending">Đang chờ xác nhận</option>
-               <option value="completed">Đã xác nhận</option>
+               <option value="pending">Chờ xác nhận</option>
+               <option value="completed">Đã thanh toán</option>
             </select>
             <input type="submit" value="Cập nhập" name="update_order" class="option-btn">
             <a href="admin_orders.php&delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('Bạn chắc chắn xóa sản phẩm này?');" class="delete-btn">Xóa</a>
@@ -90,6 +113,24 @@ if(isset($_GET['delete'])){
          echo '<p class="empty">Không thể đặt sách!</p>';
       }
       ?>
+   </div>
+
+   <div style="text-align:center; font-size:2rem;">
+   <?php
+   if($current_page > 1 && $total_page > 1){
+      echo '<a href="admin_orders.php&page=' .($current_page-1).'">Prev</a> | ';
+   }
+   for($i=1;$i<=$total_page;$i++){
+      if($i == $current_page){
+         echo '<span>'.$i.'</span> | ';
+      }else{
+         echo '<a href="admin_orders.php&page='.($i).'">'.$i.'</a> | ';
+      }
+   }
+   if($current_page < $total_page&&$total_page >1){
+      echo '<a href = "admin_orders.php&page='.($current_page+1).'">Next</a> |';
+   }
+   ?>
    </div>
 
 </section>
