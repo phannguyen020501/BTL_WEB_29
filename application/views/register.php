@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
    require_once 'C:\xampp\htdocs\BTL_WEB_29\services\RegisterServices.php';
    
    $registerService = new RegisterServices();
-   $select_users = $registerService->getNameEmail($email,$pass);
+   $select_users = $registerService->getNameEmail($email,$name);
   
    
    if(mysqli_num_rows($select_users) > 0){
@@ -34,23 +34,6 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Đăng ký</title>
-
-   <!-- font awesome cdn link  -->
-   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-//   <!-- custom css file link  -->
-   <!-- <link rel="stylesheet" href="public/css/login_css.css">
-   <link rel="stylesheet" href="public/css/style2.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-</head>
-<body>  --> --> -->
    
 <!DOCTYPE html>
 <html lang="en">
@@ -58,10 +41,9 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Đăng nhập</title>
+   <title>Đăng Ký</title>
 
    <!-- font awesome cdn link  -->
-   <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'> -->
    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
    <!-- custom css file link  -->
@@ -85,35 +67,6 @@ if(isset($message)){
 }
 ?>
 
-<!-- <body>
-<div class="form-container">
-   <div class="top" style="height:110px;">
-			<h1 id="title" class="hidden" style="max-width:600px; padding-top: 60px;" ><span id="logo" style="width:800px;">BOOK STORE</span></h1>
-	</div>
-   <div class="login-box animated fadeInUp">
-	<form action="" method="post">
-            <div class="box-header">
-               <h2>Đăng Kí</h2>
-            </div>
-      <br/>
-      <h3>Đăng ký</h3>
-      <input type="text" name="name" placeholder="Tên người dùng" required class="box">
-      <input type="email" name="email" placeholder="Email" required class="box">
-      <input type="password" name="password" placeholder="Mật khẩu" required class="box">
-      <input type="password" name="cpassword" placeholder="Xác nhận mật khẩu" required class="box">
-      <input type="text" name="number" pattern="^((\+84)|0)\d{9,10}$" placeholder="Số điện thoại(10 số)" required class="box">
-      <input type= "hidden" name ="user_type" value = "user" >
-      <!-- <select name="user_type" class="box">
-         <option value="user">Người dùng</option>
-      </select> -->
-      <!-- <br/>
-      <input type="submit" name="submit" value="Đăng ký" class="btn">
-            <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
-   </form>
-
-   </div>
-</div>
-</body> --> -->
 
 <body>
 	<div class="container">
@@ -130,7 +83,7 @@ if(isset($message)){
             <input type="email" name="email" placeholder="Email" required class="box">
             <input type="password" name="password" placeholder="Mật khẩu" required class="box">
             <input type="password" name="cpassword" placeholder="Xác nhận mật khẩu" required class="box">
-            <input type="tel" name="number" pattern="+84[0-9]{2}-[0-9]{4}-[0-9]{4}" value="+84" required class="box">
+            <input type="tel" name="number" pattern="^((\+84)|0)\d{9,10}$"  placeholder="Số điện thoại(10 số)" required class="box">
             <input type= "hidden" name ="user_type" value = "user" >
             <br/>
 		      <input type="submit" name="submit" value="Đăng ký" class="btn">

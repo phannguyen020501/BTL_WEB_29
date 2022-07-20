@@ -74,18 +74,7 @@ if(isset($message)){
    }
 }
 ?>
-   
-<!-- <div class="form-container">
 
-   <form action="" method="post">
-      <h3>ĐĂNG NHẬP</h3>
-      <input type="email" name="email" placeholder="Tên đăng nhập" required class="box">
-      <input type="password" name="password" placeholder="Mật khẩu" required class="box">
-      <input type="submit" name="submit" value="Đăng nhập" class="btn">
-      <p>Chưa có tài khoản?<a href="register.php">Đăng ký </a></p>
-   </form>
-
-</div> -->
 <body>
 	<div class="container">
 		<div class="top" style="height:200px;">
