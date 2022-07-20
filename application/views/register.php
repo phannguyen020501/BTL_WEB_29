@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
    require_once 'C:\xampp\htdocs\BTL_WEB_29\services\RegisterServices.php';
    
    $registerService = new RegisterServices();
-   $select_users = $registerService->getNameEmail($email,$name);
+   $select_users = $registerService->getEmail($email);
   
    
    if(mysqli_num_rows($select_users) > 0){

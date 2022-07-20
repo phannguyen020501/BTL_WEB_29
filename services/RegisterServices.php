@@ -25,14 +25,19 @@ class RegisterServices extends MySqlConnect{
         $result = parent::executeQuery();
         return $result;
 	}
-	
+
 	public function getNameEmail($email,$name){
 		$query = "SELECT * FROM `users` WHERE email = '$email' AND name = '$name'";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;
 	}
-
+	public function getEmail($email){
+		$query = "SELECT * FROM `users` WHERE email = '$email' ";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+        return $result;
+	}
 
     public function delete($id) {
         $query = "DELETE FROM `users` WHERE id = '$id'";
