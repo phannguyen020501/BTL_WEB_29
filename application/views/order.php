@@ -43,12 +43,35 @@ if(!isset($user_id)){
 
       <?php
       
+      require_once 'C:\xampp\htdocs\BTL_WEB_29\services\OrderServices.php';
+      $orderServices = new OrderServices();
+      $countOrders = $orderServices->getCountIdByUserId($user_id);
+      $row = mysqli_fetch_assoc($countOrders);
+      $total_records = $row['total'];
+
+      $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+      $limit = 6;
+
+      $total_page = ceil($total_records/$limit);
+      if($current_page > $total_page){
+         $current_page = $total_page;
+      }
+      else if($current_page<1){
+         $current_page = 1;
+      }
+
+      $start = ($current_page - 1)*$limit;
+      $result = $orderServices->getOrderByStart($start,$limit);
+
+      $services = new OrderServices();
+      $select_orders = $services->getAll();
+
 
       $orderService = new OrderServices();
       $order_query = $orderService->getFromID($user_id); 
 
       if(mysqli_num_rows($order_query) > 0){
-            while($fetch_orders = mysqli_fetch_assoc($order_query)){
+            while($fetch_orders = mysqli_fetch_assoc($result)){
       ?>
       <div class="box">
          <p> Ngày đặt hàng : <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
@@ -67,6 +90,24 @@ if(!isset($user_id)){
          echo '<p class="empty">Không có sản phẩm yêu cầu!</p>';
       }
       ?>
+   </div>
+
+   <div style="text-align:center; font-size:2rem;">
+   <?php
+   if($current_page > 1 && $total_page > 1){
+      echo '<a href="order.php&page=' .($current_page-1).'">Prev</a> | ';
+   }
+   for($i=1;$i<=$total_page;$i++){
+      if($i == $current_page){
+         echo '<span>'.$i.'</span> | ';
+      }else{
+         echo '<a href="order.php&page='.($i).'">'.$i.'</a> | ';
+      }
+   }
+   if($current_page < $total_page&&$total_page >1){
+      echo '<a href = "order.php&page='.($current_page+1).'">Next</a> |';
+   }
+   ?>
    </div>
 
 </section>

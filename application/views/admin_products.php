@@ -27,7 +27,7 @@ if(isset($_POST['add_product'])){
    $image_tmp_name = $_FILES['image']['tmp_name'];
    $image_folder = 'uploaded_img/'.$image;
 
-
+   $productservice=new ProductServices();
    $select_product_name = $productservice->getFromName($name);
 
    if(mysqli_num_rows($select_product_name) > 0){
@@ -148,10 +148,31 @@ if(isset($_POST['update_product'])){
    <div class="box-container">
 
       <?php
+
+         require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
+         $productServices = new ProductServices();
+         $countProducts = $productServices->getCountId();
+         $row = mysqli_fetch_assoc($countProducts);
+         $total_records = $row['total'];
+
+         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+         $limit = 6;
+
+         $total_page = ceil($total_records/$limit);
+         if($current_page > $total_page){
+            $current_page = $total_page;
+         }
+         else if($current_page<1){
+            $current_page = 1;
+         }
+
+         $start = ($current_page - 1)*$limit;
+         $result = $productServices->getProduct($start,$limit);
+
          $productservice = new ProductServices();
          $select_products = $productservice->getAll();
          if(mysqli_num_rows($select_products) > 0){
-            while($fetch_products = mysqli_fetch_assoc($select_products)){
+            while($fetch_products = mysqli_fetch_assoc($result)){
       ?>
       <div class="box">
          <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
@@ -172,6 +193,23 @@ if(isset($_POST['update_product'])){
          echo '<p class="empty">Không có sách để thêm!</p>';
       }
       ?>
+   </div>
+   <div style="text-align:center; font-size:2rem;">
+   <?php
+   if($current_page > 1 && $total_page > 1){
+      echo '<a href="admin_products.php&page=' .($current_page-1).'">Prev</a> | ';
+   }
+   for($i=1;$i<=$total_page;$i++){
+      if($i == $current_page){
+         echo '<span>'.$i.'</span> | ';
+      }else{
+         echo '<a href="admin_products.php&page='.($i).'">'.$i.'</a> | ';
+      }
+   }
+   if($current_page < $total_page&&$total_page >1){
+      echo '<a href = "admin_products.php&page='.($current_page+1).'">Next</a> |';
+   }
+   ?>
    </div>
 
 </section>

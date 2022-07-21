@@ -44,8 +44,29 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
       <?php
+         require_once 'C:\xampp\htdocs\BTL_WEB_29\services\UserServices.php';
+
+         $userservice = new UserServices();
+         $countUser = $userservice->getCountId();
+         $row = mysqli_fetch_assoc($countUser);
+         $total_records = $row['total'];
+   
+         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+         $limit = 6;
+   
+         $total_page = ceil($total_records/$limit);
+         if($current_page > $total_page){
+            $current_page = $total_page;
+         }
+         else if($current_page<1){
+            $current_page = 1;
+         }
+   
+         $start = ($current_page - 1)*$limit;
+         $result = $userservice->getUserByStart($start,$limit);
+
          $select_users = $userservice->getAll();
-         while($fetch_users = mysqli_fetch_assoc($select_users)){
+         while($fetch_users = mysqli_fetch_assoc($result)){
       ?>
       <div class="box">
          <p> ID : <span><?php echo $fetch_users['id']; ?></span> </p>
@@ -59,6 +80,24 @@ if(isset($_GET['delete'])){
       ?>
    </div>
 
+   <div style="text-align:center; font-size:2rem;">
+   <?php
+   if($current_page > 1 && $total_page > 1){
+      echo '<a href="admin_users.php&page=' .($current_page-1).'">Prev</a> | ';
+   }
+   for($i=1;$i<=$total_page;$i++){
+      if($i == $current_page){
+         echo '<span>'.$i.'</span> | ';
+      }else{
+         echo '<a href="admin_users.php&page='.($i).'">'.$i.'</a> | ';
+      }
+   }
+   if($current_page < $total_page&&$total_page >1){
+      echo '<a href = "admin_users.php&page='.($current_page+1).'">Next</a> |';
+   }
+   ?>
+   </div>
+   
 </section>
 
 

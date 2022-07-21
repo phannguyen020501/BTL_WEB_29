@@ -64,5 +64,24 @@ class OrderServices extends MySqlConnect{
         $result = parent::executeQuery();
         return $result;
 	}
-		
+	
+	public function getCountId(){
+		$query = "select count(id) as total from orders";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getCountIdByUserId($id){
+		$query = "select count(id) as total from orders where user_id = ".$id;
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getOrderByStart($start,$limit){
+		$query = "SELECT * FROM orders LIMIT $start, $limit";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+
 }

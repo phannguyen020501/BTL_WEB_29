@@ -49,6 +49,19 @@ class MessageServices extends MySqlConnect{
         $result = parent::executeQuery();
 	}
 
+	public function getCountId(){
+		$query = "select count(id) as total from `message`";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+	public function getMessageByStart($start,$limit){
+		$query = "SELECT * FROM `message` LIMIT $start, $limit";
+		parent::addQuerry($query);
+        $result = parent::executeQuery();
+		return $result;
+	}
+
 	
 
 }
