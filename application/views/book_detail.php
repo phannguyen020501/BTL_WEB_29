@@ -68,32 +68,32 @@ if(isset($_POST['add_to_cart'])){
       <div class = "img-display">
         <div class = "img-showcase">
 
-          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "shoe image" >
-          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "shoe image">
-          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "shoe image">
-          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "shoe image">
+          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "book image" >
+          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "book image">
+          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "book image">
+          <img src = "uploaded_img/<?php echo $fetch_products['image'];?>" alt = "book image">
 
         </div>
       </div>
       <div class = "img-select">
         <div class = "img-item">
           <a href = "#" data-id = "1">
-            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "book image" style="width:130px; height:125px">
           </a>
         </div>
         <div class = "img-item">
           <a href = "#" data-id = "2">
-            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "book image" style="width:130px; height:125px">
           </a>
         </div>
         <div class = "img-item">
           <a href = "#" data-id = "3">
-            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "book image" style="width:130px; height:125px">
           </a>
         </div>
         <div class = "img-item">
           <a href = "#" data-id = "4">
-            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "shoe image" style="width:130px; height:125px">
+            <img src = "public/uploaded_img/<?php echo $fetch_products['image'];?>"  alt = "book image" style="width:130px; height:125px">
           </a>
         </div>
       </div>
