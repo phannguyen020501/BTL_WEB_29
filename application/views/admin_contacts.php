@@ -47,14 +47,15 @@ if(isset($_GET['delete'])){
       require_once 'C:\xampp\htdocs\BTL_WEB_29\services\MessageServices.php';
 
       $messageServices = new MessageServices();
-
+      
       $countMessage = $messageServices->getCountId();
-
+      
       $row = mysqli_fetch_assoc($countMessage);
       $total_records = $row['total'];
+
       $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
       $limit = 6;
-      
+
       $total_page = ceil($total_records/$limit);
       if($current_page > $total_page){
          $current_page = $total_page;
@@ -62,7 +63,6 @@ if(isset($_GET['delete'])){
       else if($current_page<1){
          $current_page = 1;
       }
-
 
       $start = ($current_page - 1)*$limit;
       if($start<0){

@@ -63,6 +63,9 @@ if(isset($_GET['delete'])){
          }
    
          $start = ($current_page - 1)*$limit;
+         if($start<0){
+            $start=0;
+         }
          $result = $userservice->getUserByStart($start,$limit);
 
          $select_users = $userservice->getAll();

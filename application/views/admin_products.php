@@ -4,6 +4,7 @@ require_once 'C:\xampp\htdocs\BTL_WEB_29\config\config.php';
 require_once 'C:\xampp\htdocs\BTL_WEB_29\services\ProductServices.php';
 require_once 'C:\xampp\htdocs\BTL_WEB_29\application\models\Products.php';
 
+
 session_start();
 
 $admin_id = $_SESSION['admin_id'];
@@ -50,12 +51,16 @@ if(isset($_POST['add_product'])){
 }
 
 if(isset($_GET['delete'])){
+   require_once 'C:\xampp\htdocs\BTL_WEB_29\services\CartServices.php'; 
+
    $delete_id = $_GET['delete'];
    $productservice = new ProductServices();
    $delete_image_query = $productservice->getFromID($delete_id);
-
    $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
    unlink('uploaded_img/'.$fetch_delete_image['image']);
+   $cardservice = new CartServices();
+   $cardservice = $cardservice->deleteProductByName($fetch_delete_image['name']);
+   
    $productservice->deleteFromID($delete_id);
    header('location:admin_products.php');
 }
@@ -135,7 +140,7 @@ if(isset($_POST['update_product'])){
       <input type="text" name="summary" class="box" placeholder="Mô tả" required = true>
       <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required = true>
       <input type="number" min="0" name="year" class="box" placeholder="Năm xuất bản" required = true>
-      <input type="submit" value="Thên sách" name="add_product" class="btn">
+      <input type="submit" value="Thêm sách" name="add_product" class="btn">
       
    </form>
 
@@ -167,6 +172,9 @@ if(isset($_POST['update_product'])){
          }
 
          $start = ($current_page - 1)*$limit;
+         if($start<0){
+            $start=0;
+         }
          $result = $productServices->getProduct($start,$limit);
 
          $productservice = new ProductServices();
@@ -184,7 +192,7 @@ if(isset($_POST['update_product'])){
          <div class="price"><?php echo $fetch_products['price']; ?> VND</div>
          <!-- <div class="summary"><?php echo $fetch_products['summary']; ?></div> -->
          <!-- <div class="year"><?php echo $fetch_products['year']; ?></div> -->
-         <a href="admin_products.php&update=<?php echo $fetch_products['id']; ?>" class="option-btn">Cập nhập</a>
+         <a href="admin_products.php&update=<?php echo $fetch_products['id']; ?>" class="option-btn">Cập nhật</a>
          <a href="admin_products.php&delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('Xóa sách?');">Xóa</a>
       </div>
       <?php
@@ -239,7 +247,7 @@ if(isset($_POST['update_product'])){
       <input type="summary" name="update_summary" value="<?php echo $fetch_update['summary']; ?>" min="0" class="box" required placeholder="enter product summary">
       <input type="number" name="update_year" value="<?php echo $fetch_update['year']; ?>" min="0" class="box" required placeholder="enter product year">
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-      <input type="submit" value="cập nhập" name="update_product" class="btn">
+      <input type="submit" value="cập nhật" name="update_product" class="btn">
       <input type ="submit" value="hủy" formaction="admin_products.php" id="close-update" class="option-btn">
    </form>
    <?php

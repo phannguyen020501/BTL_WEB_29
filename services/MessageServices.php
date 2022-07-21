@@ -13,7 +13,7 @@ class MessageServices extends MySqlConnect{
 	}
 
 	public function getAll(){
-		$query = "select * from message";
+		$query = "select * from message ";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
 		return $result;

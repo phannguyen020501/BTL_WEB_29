@@ -55,14 +55,13 @@ class CartServices extends MySqlConnect{
 	}
 
     public function delete($id) {
-        $query = "delete FROM `cart` WHERE id = $id";
-
+        $query = "delete FROM `cart` WHERE id = ".$id."";
         parent::addQuerry($query);
 		parent::updateQuery($query);
     }
 
     public function deleteAll($user_id) {
-        $query = "delete FROM `cart` WHERE user_id = $user_id";
+        $query = "delete FROM `cart` WHERE user_id = ".$user_id."";
         parent::addQuerry($query);
 		parent::updateQuery($query);
     }
@@ -73,4 +72,11 @@ class CartServices extends MySqlConnect{
 		parent::updateQuery($query);
 		
 	}
+	public function deleteProductByName($name) {
+        $query = "delete from `cart` WHERE name = '$name'";
+		//echo $query;
+        parent::addQuerry($query);
+		parent::updateQuery($query);
+
+    }
 }

@@ -65,7 +65,7 @@ if(isset($_GET['delete'])){
       $total_records = $row['total'];
 
       $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-      $limit = 6;
+      $limit = 3;
 
       $total_page = ceil($total_records/$limit);
       if($current_page > $total_page){
@@ -76,6 +76,9 @@ if(isset($_GET['delete'])){
       }
 
       $start = ($current_page - 1)*$limit;
+      if($start<0){
+         $start=0;
+      }
       $result = $orderServices->getOrderByStart($start,$limit);
 
       $services = new OrderServices();
@@ -97,8 +100,8 @@ if(isset($_GET['delete'])){
             <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
             <select name="update_payment">
                <!-- <option value="" selected disabled><?php echo $fetch_orders['payment_status']; ?></option> -->
-               <option value="pending">Đang chờ xác nhận</option>
-               <option value="completed">Đã xác nhận</option>
+               <option value="pending">Chờ xác nhận</option>
+               <option value="completed">Đã thanh toán</option>
             </select>
             <input type="submit" value="Cập nhập" name="update_order" class="option-btn">
             <a href="admin_orders.php&delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('Bạn chắc chắn xóa sản phẩm này?');" class="delete-btn">Xóa</a>

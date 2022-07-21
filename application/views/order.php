@@ -18,7 +18,7 @@ if(!isset($user_id)){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>orders</title>
+   <title>Đặt hàng</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -50,7 +50,7 @@ if(!isset($user_id)){
       $total_records = $row['total'];
 
       $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-      $limit = 6;
+      $limit = 4;
 
       $total_page = ceil($total_records/$limit);
       if($current_page > $total_page){
@@ -61,7 +61,10 @@ if(!isset($user_id)){
       }
 
       $start = ($current_page - 1)*$limit;
-      $result = $orderServices->getOrderByStart($start,$limit);
+      if($start<0){
+         $start=0;
+      }
+      $result = $orderServices->getOrderByStartUser($start,$limit,$user_id);
 
       $services = new OrderServices();
       $select_orders = $services->getAll();
