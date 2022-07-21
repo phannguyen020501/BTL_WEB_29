@@ -130,7 +130,7 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
-      <input type="submit" class="btn" value="add to cart" name="add_to_cart">
+      <input type="submit" class="btn" value="Thêm vào giỏ hàng" name="add_to_cart">
    </form>
    <?php
             }

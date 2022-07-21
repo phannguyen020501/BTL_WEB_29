@@ -11,7 +11,7 @@ class RouteController {
 
 
     function parsingURL() {
-        // call home page if path is '/'
+        
         if(strcmp($this->_url, "/") == 0){
             require_once 'HomeController.php';
             $this->_dispath = new HomeController();
@@ -20,15 +20,9 @@ class RouteController {
 
         $urlArray = explode("/", $this->_url);
         $controller = $urlArray[0]; array_shift($urlArray);
-        $id = -1;
-
-        // check if details -> add id to url
-        if(strcmp($controller, "details") == 0){
-            $id = intval($urlArray[0]); array_shift($urlArray);
-        }
 
 
-        // if link is account-management => controller of link is AccountManagementController
+        // admin_page.php -> AdminPageController.php
         $controller = str_replace('_', ' ', $controller);
         $controller = ucwords($controller);
         $controller = str_replace(' ', '', $controller);
@@ -37,15 +31,14 @@ class RouteController {
 
         $controller = '';
         $controller.=$iparr[0];
-        $controller .="Controller"; // example : AboutController, ContactController,...
+        $controller .="Controller"; 
         
        
         // include controller
         require_once $controller.'.php';
 
-       
-        $this->_dispath = new $controller($id);
-        
+        $this->_dispath =new $controller();
+
 
     }
 

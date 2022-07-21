@@ -52,7 +52,7 @@ class ProductServices extends MySqlConnect{
 
 	public function getAll(){
 		$listProducts = array();
-		$query = "select * from products";
+		$query = "select * from products ";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
         return $result;
@@ -98,7 +98,7 @@ class ProductServices extends MySqlConnect{
 		return $result;
 	}
 	public function getProduct($start,$limit){
-		$query = "SELECT * FROM products LIMIT $start, $limit";
+		$query = "SELECT * FROM products order by id DESC	 LIMIT $start, $limit ";
 		parent::addQuerry($query);
         $result = parent::executeQuery();
 		return $result;
